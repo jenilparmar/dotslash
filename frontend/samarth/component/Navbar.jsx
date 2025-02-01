@@ -17,12 +17,12 @@ const Navbar = () => {
       </div>
 
       <ul className="flex flex-row space-x-6">
-        <Link href="/dashboard">
+        <Link href="/dashboard" prefetch={true}>
           <li className="cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 hover:scale-105 transition-transform">
             Dashboard
           </li>
         </Link>
-        <Link href="/view">
+        <Link href="/viewhistory">
           <li className="cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 hover:scale-105 transition-transform">
             View History
           </li>
@@ -32,7 +32,7 @@ const Navbar = () => {
             Permission
           </li>
         </Link>
-        <Link href="/shareconnection">
+        <Link href="/stringshare">
           <li className="cursor-pointer text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 hover:scale-105 transition-transform">
             Share Connection
           </li>

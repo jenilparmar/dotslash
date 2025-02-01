@@ -77,7 +77,7 @@ const ChatGPTInterface = () => {
       paragraph: input,
     };
     setLoading(true);
-    const res = await fetch("http://192.168.1.14:5000/getIntent", {
+    const res = await fetch("http://172.16.44.183:5000/getIntent", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
