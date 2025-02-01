@@ -330,6 +330,8 @@ const ChatGPTInterface = () => {
       let contract = new Contract(contractAddress, ABI.abi, signature);
       console.log(contract);
       let random = generateRandom();
+      console.log(random);
+      
       await contract.uploadByOur(
         input,
         `${data["insertedCount"]} entries Inseted In DB!!`,

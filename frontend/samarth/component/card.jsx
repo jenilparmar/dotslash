@@ -75,7 +75,7 @@ export default function Card({ statement, query, intent, transaction, date }) {
                     body: JSON.stringify({
                       nameOfDb: input.dbName,
                       nameOfCollection: input.collectionName,
-                      paragraph: query,
+                      paragraph: statement,
                       MongodbURI: "mongodb://localhost:27017",
                     }),
                   });
