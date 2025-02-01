@@ -6,6 +6,7 @@ import { Contract, Signature } from "ethers";
 import { Pixelify_Sans } from "next/font/google";
 import "./globals.css"; // Ensure this file is imported
 import Home from "../../samarth/component/Home";
+import Navbar from "../../samarth/component/Navbar";
 
 export default function Page() {
   const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
@@ -105,6 +106,7 @@ export default function Page() {
 
   return (
     <div className="h-screen w-full flex-col flex  justify-center ">
+      <Navbar/>
       <Home></Home>
     </div>
   );

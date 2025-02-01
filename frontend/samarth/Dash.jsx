@@ -27,6 +27,10 @@ const ChatGPTInterface = () => {
   const [loading, setLoading] = useState(false);
   const [workinguri, setWorkingUri] = useState(`mongodb://localhost:27017/`);
   const [nameOfOwner, setNameOfOwner] = useState("");
+  const [creds, setCreds] = useState({
+    dbName: "jenil",
+    colName: "parmar",
+  });
   const [readDataOperation, setReadDataOperation] = useState({
     response: [],
     flag: false,
@@ -36,6 +40,14 @@ const ChatGPTInterface = () => {
     response: "",
     flag: false,
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCreds((prev) => ({
+      ...prev, // Keep existing values
+      [name]: value, // Update only the targeted input field
+    }));
+  };
   useEffect(() => {
     async function getDbs(uri) {
       const data = {
@@ -88,8 +100,10 @@ const ChatGPTInterface = () => {
     });
     setLoading(false);
     const response = await res.json();
-    const dbName = ("" + response["DB_info"]).split(/[\s,]+/)[0];
-    const colName = response["DB_info"].split(/[\s,]+/)[1];
+    // const dbName = ("" + response["DB_info"]).split(/[\s,]+/)[0];
+    const dbName = creds.dbName;
+    // const colName = response["DB_info"].split(/[\s,]+/)[1];
+    const colName = creds.colName;
     let intent = ("" + response.intent).toLowerCase();
     if (intent === "read") {
       console.log("In Read All Data Mode!!");
@@ -185,25 +199,28 @@ const ChatGPTInterface = () => {
       );
     } else if (intent == "DELETE".toLowerCase()) {
       console.log("In Whole Collection Delete Mode!");
+      if (
+        confirm("Do you want to Delete the Whole Collection??", creds.colName)
+      ) {
+        const QueryDone = await fetch("/api/DeleteCollection", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nameOfDB: dbName,
+            nameOfCollection: colName,
+            MongoDbUri: uri,
+          }),
+        });
+        const data = await QueryDone.json();
+        setReadDataOperation(false);
 
-      const QueryDone = await fetch("/api/DeleteCollection", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nameOfDB: dbName,
-          nameOfCollection: colName,
-          MongoDbUri: uri,
-        }),
-      });
-      const data = await QueryDone.json();
-      setReadDataOperation(false);
-
-      setGeneralOpeeration({
-        flag: true,
-        response: data["message"],
-      });
+        setGeneralOpeeration({
+          flag: true,
+          response: data["message"],
+        });
+      }
     } else if (intent == "DELETE_CONDITIONED_BASED".toLowerCase()) {
       console.log("In Delete Condition based!!!");
       // give me the data whose name hogaya and age is <=19 from database name jenil and collection name pamrar
@@ -362,8 +379,7 @@ const ChatGPTInterface = () => {
         <div
           className={`flex flex-row h-screen mt-20 ${
             isDarkMode ? "bg-black text-white" : "bg-gray-100 text-gray-900"
-          }`}
-        >
+          }`}>
           {/* <div>
         <button
           onClick={async () => {
@@ -408,8 +424,7 @@ const ChatGPTInterface = () => {
                   } `}
                   onClick={() => {
                     setWorkingUri("mongodb://localhost:27017/");
-                  }}
-                >
+                  }}>
                   local host Database
                 </h1>
 
@@ -418,8 +433,7 @@ const ChatGPTInterface = () => {
                     allDatabases.map((db, index) => (
                       <li
                         className="w-full px-5 py-2 text-sm bg-[#292929] rounded-2xl text-center hover:bg-[#626262] hover:scale-105 transition-all duration-100"
-                        key={index}
-                      >
+                        key={index}>
                         {db["name"]}
                       </li>
                     ))
@@ -438,8 +452,7 @@ const ChatGPTInterface = () => {
               }`}
                   onClick={() => {
                     setWorkingUri();
-                  }}
-                >
+                  }}>
                   another database
                 </h1>
                 <ul className="gap-2 flex flex-col">
@@ -447,8 +460,7 @@ const ChatGPTInterface = () => {
                     anotherData.map((db, index) => (
                       <li
                         className="w-full px-5 py-2 text-sm bg-[#292929] rounded-2xl text-center hover:bg-[#626262] hover:scale-105 transition-all duration-100"
-                        key={index}
-                      >
+                        key={index}>
                         {db["name"]}
                       </li>
                     ))
@@ -528,8 +540,7 @@ const ChatGPTInterface = () => {
                     console.error("Error:", error.message);
                   }
                 }}
-                className="px-4 w-full py-2 rounded-lg cs"
-              >
+                className="px-4 w-full py-2 rounded-lg cs">
                 Connect
               </button>
             </div>
@@ -542,8 +553,7 @@ const ChatGPTInterface = () => {
                 readDataOperation.response.map((obj, index) => (
                   <div
                     key={index}
-                    className="p-4 border rounded-lg bg-[#292929] text-white"
-                  >
+                    className="p-4 border rounded-lg bg-[#292929] text-white">
                     <pre>{JSON.stringify(obj, null, 2)}</pre>
                   </div>
                 ))}
@@ -571,10 +581,9 @@ const ChatGPTInterface = () => {
             <div
               className={`p-4 border-t   ${
                 isDarkMode ? "border-[#292929] " : "border-gray-300 bg-white"
-              }`}
-            >
+              }`}>
               <div className="w-full  flex items-center space-x-3 ">
-                <div className="card w-full hover:p-1">
+                <div className="card w-full hover:p-1 flex flex-col gap-2">
                   <input
                     type="text"
                     className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
@@ -587,6 +596,32 @@ const ChatGPTInterface = () => {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handleSend()}
                   />
+                  <div className="flex flex-row w-full">
+                    <input
+                      className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
+                        isDarkMode
+                          ? "bg-[#292929] text-white focus:ring-[#787d81]"
+                          : "bg-gray-100 text-black focus:ring-blue-400"
+                      }`}
+                      type="text"
+                      name="dbName"
+                      value={creds.dbName}
+                      onChange={handleChange}
+                      placeholder="Database Name"
+                    />
+                    <input
+                      className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
+                        isDarkMode
+                          ? "bg-[#292929] text-white focus:ring-[#787d81]"
+                          : "bg-gray-100 text-black focus:ring-blue-400"
+                      }`}
+                      type="text"
+                      name="colName"
+                      value={creds.colName}
+                      onChange={handleChange}
+                      placeholder="Collection Name"
+                    />
+                  </div>
                 </div>
                 <button
                   className={`cs px-4 py-2 rounded-lg `}
@@ -596,8 +631,7 @@ const ChatGPTInterface = () => {
                       handleSend();
                     }
                   }}
-                  onClick={handleSend}
-                >
+                  onClick={handleSend}>
                   Send
                 </button>
               </div>
