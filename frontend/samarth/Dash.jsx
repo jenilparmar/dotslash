@@ -326,8 +326,8 @@ const ChatGPTInterface = () => {
       console.log(signature);
       console.log("address->", await signature.getAddress());
       let contract = new Contract(contractAddress, ABI.abi, signature);
-      console.log(contract);
-      let random = generateRandom();
+      console.log("--->comtraccttt", contract);
+      let random = window.crypto.randomUUID().replace(/-/g, "").slice(0, 16);
       console.log(random);
 
       await contract.uploadByOur(
