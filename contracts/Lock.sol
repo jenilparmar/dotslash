@@ -46,4 +46,45 @@ contract Lock {
             )
         );
     }
+    function uploadByOur(
+        string memory _userStatement,
+        string memory _queryPoint,
+        string memory _transactionId,
+        string memory _intent
+    ) public {
+        contentList[msg.sender].push(
+            content(
+                _userStatement,
+                _queryPoint,
+                _transactionId,
+                _intent,
+                block.timestamp
+            )
+        );
+    }
+
+    function addPermission(address _add, string memory name) public {
+        if (msg.sender == _add) {
+            revert("you are only owner");
+        } else if (prevownership[msg.sender][_add]) {
+            ownership[msg.sender][_add] = true;
+        } else {
+            ownership[msg.sender][_add] = true;
+            access[msg.sender].push(addressUser(_add, name));
+            prevownership[msg.sender][_add] = true;
+        }
+    }
+    function addConnectionString(string memory _url) public {
+        connectionString[msg.sender] = _url;
+    }
+
+    function viewConnectionString(
+        address user
+    ) public view returns (string memory) {
+        if (ownership[user][msg.sender]) {
+            return connectionString[user];
+        } else {
+            revert("you are not allowed to view ");
+        }
+    }
 }
