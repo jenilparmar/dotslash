@@ -19,3 +19,6 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+.custom-font {
+  font-family: 'Pixelify Sans', sans-serif !important;
+}
