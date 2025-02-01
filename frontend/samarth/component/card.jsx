@@ -57,10 +57,14 @@ export default function Card({ statement, query, intent, transaction, date }) {
             day: "numeric",
           })}
         </p>
-        <button onClick={()=>{
-          setNames(true);
-
-        }} className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">Add Info</button>
+        <button
+          onClick={() => {
+            setNames(true);
+          }}
+          className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        >
+          Add Info
+        </button>
         {["update", "delete", "insert"].includes(intent) ? (
           <button
             className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
@@ -96,9 +100,7 @@ export default function Card({ statement, query, intent, transaction, date }) {
                   console.error("Error in RevertInsert:", error); // ✅ Fix: Proper error handling
                   alert("Failed to revert data.");
                 }
-              }
-
-              if (intent === "delete") {
+              } else if (intent === "delete") {
                 let res = await fetch("/api/getdeleteddata", {
                   method: "POST",
                   body: JSON.stringify({
@@ -119,11 +121,18 @@ export default function Card({ statement, query, intent, transaction, date }) {
                   }),
                 });
                 console.log(re);
-                if(re?.statusCode ==200 ){
-                  alert("Deleted Data Reverted back to your Localhost!!!")
+                if (re?.statusCode == 200) {
+                  alert("Deleted Data Reverted back to your Localhost!!!");
                 }
+              } else if (intent == "update") {
+                let res = await fetch("/api/getupdateddata", {
+                  method: "POST",
+                  body: json.stringify({ hash: transaction }),
+                });
               }
-            }}>
+              console.log(res);
+            }}
+          >
             Revert
           </button>
         ) : (
