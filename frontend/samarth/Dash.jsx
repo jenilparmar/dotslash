@@ -199,25 +199,28 @@ const ChatGPTInterface = () => {
       );
     } else if (intent == "DELETE".toLowerCase()) {
       console.log("In Whole Collection Delete Mode!");
+      if (
+        confirm("Do you want to Delete the Whole Collection??", creds.colName)
+      ) {
+        const QueryDone = await fetch("/api/DeleteCollection", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nameOfDB: dbName,
+            nameOfCollection: colName,
+            MongoDbUri: uri,
+          }),
+        });
+        const data = await QueryDone.json();
+        setReadDataOperation(false);
 
-      const QueryDone = await fetch("/api/DeleteCollection", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nameOfDB: dbName,
-          nameOfCollection: colName,
-          MongoDbUri: uri,
-        }),
-      });
-      const data = await QueryDone.json();
-      setReadDataOperation(false);
-
-      setGeneralOpeeration({
-        flag: true,
-        response: data["message"],
-      });
+        setGeneralOpeeration({
+          flag: true,
+          response: data["message"],
+        });
+      }
     } else if (intent == "DELETE_CONDITIONED_BASED".toLowerCase()) {
       console.log("In Delete Condition based!!!");
       // give me the data whose name hogaya and age is <=19 from database name jenil and collection name pamrar
@@ -595,11 +598,11 @@ const ChatGPTInterface = () => {
                   />
                   <div className="flex flex-row w-full">
                     <input
-                    className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
-                      isDarkMode
-                        ? "bg-[#292929] text-white focus:ring-[#787d81]"
-                        : "bg-gray-100 text-black focus:ring-blue-400"
-                    }`}
+                      className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
+                        isDarkMode
+                          ? "bg-[#292929] text-white focus:ring-[#787d81]"
+                          : "bg-gray-100 text-black focus:ring-blue-400"
+                      }`}
                       type="text"
                       name="dbName"
                       value={creds.dbName}
@@ -607,11 +610,11 @@ const ChatGPTInterface = () => {
                       placeholder="Database Name"
                     />
                     <input
-                    className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
-                      isDarkMode
-                        ? "bg-[#292929] text-white focus:ring-[#787d81]"
-                        : "bg-gray-100 text-black focus:ring-blue-400"
-                    }`}
+                      className={` card2 h-3 w-full flex-1  px-4 py-10  focus:outline-none focus:ring-2 ${
+                        isDarkMode
+                          ? "bg-[#292929] text-white focus:ring-[#787d81]"
+                          : "bg-gray-100 text-black focus:ring-blue-400"
+                      }`}
                       type="text"
                       name="colName"
                       value={creds.colName}
