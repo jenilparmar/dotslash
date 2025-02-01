@@ -144,14 +144,16 @@ const ChatGPTInterface = () => {
       const filter = parseQuery(input);
       // console.log(filter);
       
-      // console.log("--------->", {
-      //   nameOfDB: dbName,
-      //   nameOfCollection: colName,
-      //   atrs: filter,
-      //   MongoDbUri: uri,
-      //   changeAtrs: [{ name: "jenil" }],
-      // });
+      console.log("--------->", {
+        nameOfDB: dbName,
+        nameOfCollection: colName,
+        atrs: filter,
+        MongoDbUri: uri,
+        changeAtrs: [{ name: "jenil" }],
+      });
       const changeArributes = ExtractDataFromPara(input);
+      console.log(changeArributes);
+      
       const QueryDone = await fetch("/api/Update", {
         method: "POST",
         headers: {
@@ -328,6 +330,8 @@ const ChatGPTInterface = () => {
       let contract = new Contract(contractAddress, ABI.abi, signature);
       console.log(contract);
       let random = generateRandom();
+      console.log(random);
+      
       await contract.uploadByOur(
         input,
         `${data["insertedCount"]} entries Inseted In DB!!`,
@@ -540,7 +544,7 @@ const ChatGPTInterface = () => {
                 ))}
               {generalOperation.flag && (
                 <>
-                  <p className="text-green-500 text-6xl font-bold self-center">
+                  <p className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-green-500 text-6xl font-bold self-center">
                     {generalOperation.response}
                   </p>
                 </>

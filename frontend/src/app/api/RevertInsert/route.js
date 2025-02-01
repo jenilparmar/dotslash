@@ -36,7 +36,9 @@ export async function POST(request) {
                 headers: { 'Content-Type': 'application/json' },
             });
         }
+        
         const data = ExtractDataFromPara(paragraph);
+        console.log(data);
         // Call the Revert_Insert function
         await Revert_Delete(nameOfDb, nameOfCollection, data, MongodbURI);
 
