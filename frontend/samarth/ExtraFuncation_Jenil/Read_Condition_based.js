@@ -1,14 +1,5 @@
 export function parseQuery(input) {
-    const dbMatch = input.match(/database\s+(\w+)/i);
-    const collectionMatch = input.match(/collection\s+(\w+)/i);
-  
-    if (!dbMatch) {
-      return false; // Missing database name: No database specified.
-    }
-  
-    if (!collectionMatch) {
-      return false; // Missing collection name: No collection specified.
-    }
+
   
     const conditions = [];
     const conditionRegex = /(\w+)\s*(==|!=|>=|<=|>|<|equals|less than|greater than)\s*["']?([^"'\s]+)["']?\s*(and|or)?/gi;
