@@ -1,7 +1,7 @@
+
 import React from "react";
 import { Pixelify_Sans } from "next/font/google";
 import Link from "next/link";
-
 const pixelFont = Pixelify_Sans({
   weight: "400",
   subsets: ["latin"],
@@ -9,7 +9,7 @@ const pixelFont = Pixelify_Sans({
 
 const Navbar = () => {
   return (
-    <div className="w-full h-20 flex flex-row justify-between px-6 items-center bg-gray-900">
+    <div className="fixed top-0 w-full h-20 flex flex-row justify-between px-6 items-center ">
       {/* Brand Name */}
       <div
         className={`${pixelFont.className} text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-green-500`}
