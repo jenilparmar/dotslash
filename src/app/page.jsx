@@ -11,6 +11,7 @@ export default function page() {
    <>
     <div className="h-screen w-full flex flex-col justify-center">
     <Home></Home>
+    
     </div>
    </>
   );
