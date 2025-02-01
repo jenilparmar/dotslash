@@ -6,6 +6,7 @@ import { readAllData } from "../ReadAllData/route";
 import { readConditionData } from "../ReadConditionBased/route";
 import { updateData } from "../Update/route";
 import { parseQuery } from "../../../../samarth/ExtraFuncation_Jenil/Read_Condition_based";
+import { ExtractDataFromPara } from "../InsertData/ExtractDataFromInsert";
 // data = [dataTOInsert , atrbs  , changeAtrbs]
 
 export async function HandleCrudFuncutions(
@@ -14,7 +15,7 @@ export async function HandleCrudFuncutions(
   nameOfCollection,
   MongoDbUri,
   paragraph,
-  ...data
+ 
 ) {
   if (String(intent).toLowerCase() === "create") {
     const res = await createDb(nameOfDB, nameOfCollection, data[0], MongoDbUri);
@@ -54,22 +55,25 @@ export async function HandleCrudFuncutions(
     const responseFromNextServer =  res;
     return responseFromNextServer;
   } else if (String(intent).toLowerCase() === "insert") {
+    const dataTOInsert = ExtractDataFromPara(paragraph);
+
+
     const res = await insertData(
       nameOfDB,
       nameOfCollection,
-      data[0],
+      dataTOInsert,
       MongoDbUri
     );
     const responseFromNextServer =  res;
     return responseFromNextServer;
   } else {
     const filter = parseQuery(paragraph)
-    ////updation;
+    const dataTOInsert = ExtractDataFromPara(paragraph);
     const res = await updateData(
       nameOfDB,
       nameOfCollection,
       filter,
-      data[0],
+      dataTOInsert,
       MongoDbUri
     );
     const responseFromNextServer =  res;

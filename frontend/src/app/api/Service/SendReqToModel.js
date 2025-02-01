@@ -4,7 +4,7 @@ export async function sendReqToModel(paragraph) {
   };
 
   try {
-    const response = await fetch("http://192.168.1.14:5000/getIntent", {
+    const response = await fetch("http://172.16.44.183:5000/getIntent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -28,6 +28,12 @@ export async function POST(req) {
       );
     }
 
+    
+    // Send paragraph to model
+    const responseFromModel = await sendReqToModel(paragraph);
+    console.log("Response from sendReqToModel:", responseFromModel);
+    
+    const [intent, ...rest] = responseFromModel;
     if (String(intent).toLowerCase() == "update" && String(intent).toLowerCase() == "delete_conditioned_based") {
       if (dataToInsert.length == 0)
         return NextResponse(
@@ -37,12 +43,6 @@ export async function POST(req) {
           })
         );
     }
-
-    // Send paragraph to model
-    const responseFromModel = await sendReqToModel(paragraph);
-    console.log("Response from sendReqToModel:", responseFromModel);
-
-    const [intent, ...rest] = responseFromModel;
     console.log("Intent:", intent);
 
     // Call CRUD handling function
