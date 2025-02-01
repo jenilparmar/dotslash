@@ -19,12 +19,18 @@ async function readConditionData(nameOfDB, nameOfCollection, atrs, MongoDbUri) {
           if (operator === "!=") return !value.includes(doc[field]);
         } else {
           switch (operator) {
-            case "<": return doc[field] < value;
-            case "<=": return doc[field] <= value;
-            case ">": return doc[field] > value;
-            case ">=": return doc[field] >= value;
-            case "==": return doc[field] == value;
-            case "!=": return doc[field] != value;
+            case "<":
+              return doc[field] < value;
+            case "<=":
+              return doc[field] <= value;
+            case ">":
+              return doc[field] > value;
+            case ">=":
+              return doc[field] >= value;
+            case "==":
+              return doc[field] == value;
+            case "!=":
+              return doc[field] != value;
           }
         }
         return false;
@@ -40,9 +46,15 @@ async function readConditionData(nameOfDB, nameOfCollection, atrs, MongoDbUri) {
   }
 }
 
-
 // Function to update document fields dynamically
-export async function updateData(nameOfDB, nameOfCollection, atrs, changeAtrsArray, MongoDbUri) {
+export async function updateData(
+  nameOfDB,
+  nameOfCollection,
+  atrs,
+  changeAtrsArray,
+  MongoDbUri,
+  hash
+) {
   const client = new MongoClient(MongoDbUri);
 
   try {
@@ -51,8 +63,13 @@ export async function updateData(nameOfDB, nameOfCollection, atrs, changeAtrsArr
     const collection = database.collection(nameOfCollection);
 
     // Get documents that match conditions
-    const dataToUpdate = await readConditionData(nameOfDB, nameOfCollection, atrs, MongoDbUri);
-    
+    const dataToUpdate = await readConditionData(
+      nameOfDB,
+      nameOfCollection,
+      atrs,
+      MongoDbUri
+    );
+
     if (!dataToUpdate.length) return "No matching data found";
 
     const response = [];
@@ -71,8 +88,17 @@ export async function updateData(nameOfDB, nameOfCollection, atrs, changeAtrsArr
       const update = { $set: updateFields };
 
       // Perform the update
-      const result = await collection.updateOne(filter, update);
-      response.push(result);
+      const result = await collection.findOneAndUpdate(filter, update);
+      let reso = [];
+      reso.push(result);
+      console.log("----------> rs", reso, "============", hash);
+      await fetch("http://localhost:3000/api/inserDeleted", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: reso, hash: hash }),
+      });
+
+      response.push(reso);
     }
 
     return `${response.length} records updated successfully!`;
@@ -86,16 +112,32 @@ export async function updateData(nameOfDB, nameOfCollection, atrs, changeAtrsArr
 // API route handler for POST request
 export async function POST(req) {
   try {
-    const { nameOfDB, nameOfCollection, atrs, changeAtrs, MongoDbUri } = await req.json();
+    const { nameOfDB, nameOfCollection, atrs, changeAtrs, MongoDbUri, hash } =
+      await req.json();
 
     if (!nameOfDB || !nameOfCollection || !atrs || !changeAtrs || !MongoDbUri) {
-      return new Response(JSON.stringify({ success: false, message: "Missing required fields" }), { status: 400 });
+      return new Response(
+        JSON.stringify({ success: false, message: "Missing required fields" }),
+        { status: 400 }
+      );
     }
 
-    const result = await updateData(nameOfDB, nameOfCollection, atrs, changeAtrs, MongoDbUri);
+    const result = await updateData(
+      nameOfDB,
+      nameOfCollection,
+      atrs,
+      changeAtrs,
+      MongoDbUri,
+      hash
+    );
 
-    return new Response(JSON.stringify({ success: true, message: result }), { status: 200 });
+    return new Response(JSON.stringify({ success: true, message: result }), {
+      status: 200,
+    });
   } catch (error) {
-    return new Response(JSON.stringify({ success: false, message: error.message }), { status: 500 });
+    return new Response(
+      JSON.stringify({ success: false, message: error.message }),
+      { status: 500 }
+    );
   }
 }

@@ -125,12 +125,32 @@ export default function Card({ statement, query, intent, transaction, date }) {
                   alert("Deleted Data Reverted back to your Localhost!!!");
                 }
               } else if (intent == "update") {
-                let res = await fetch("/api/getupdateddata", {
+                console.log("----<> update");
+                let res = await fetch("/api/getdeleteddata", {
                   method: "POST",
-                  body: json.stringify({ hash: transaction }),
+                  body: JSON.stringify({ hash: transaction }),
                 });
+                let m = await res.json();
+                // let n = m.data.data[0]._id;
+                // console.log(m.data.data);
+
+                if (!input.dbName || !input.collectionName) {
+                  alert("Please enter database and collection name");
+                  return;
+                }
+                let resoponse = await fetch("/api/RevertUpdate", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                    dbName: input.dbName,
+                    collectionName: input.collectionName,
+                    MongoDbUri: "mongodb://localhost:27017",
+                    newData: m.data.data,
+                  }),
+                });
+                let response = await resoponse.json();
+                console.log(response);
               }
-              console.log(res);
             }}
           >
             Revert

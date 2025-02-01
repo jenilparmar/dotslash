@@ -11,6 +11,7 @@ import { generateRandom } from "../utils/generateRandom";
 import Image from "next/image";
 import { set } from "rsuite/esm/internals/utils/date";
 import Navbar from "./component/Navbar";
+import { hash } from "crypto";
 const uri = "mongodb://localhost:27017/";
 
 const ChatGPTInterface = () => {
@@ -143,17 +144,11 @@ const ChatGPTInterface = () => {
       console.log("In Update Mode!!!!");
       const filter = parseQuery(input);
       // console.log(filter);
-      
-      console.log("--------->", {
-        nameOfDB: dbName,
-        nameOfCollection: colName,
-        atrs: filter,
-        MongoDbUri: uri,
-        changeAtrs: [{ name: "jenil" }],
-      });
+
       const changeArributes = ExtractDataFromPara(input);
-      console.log(changeArributes);
-      
+      console.log("in updateeee mode;llll-----", changeArributes);
+
+      const random = window.crypto.randomUUID().replace(/-/g, "").slice(0, 16);
       const QueryDone = await fetch("/api/Update", {
         method: "POST",
         headers: {
@@ -165,14 +160,29 @@ const ChatGPTInterface = () => {
           atrs: filter,
           MongoDbUri: uri,
           changeAtrs: changeArributes,
+          hash: random,
         }),
       });
+
       const data = await QueryDone.json();
       setReadDataOperation(false);
       setGeneralOpeeration({
         flag: true,
         response: data["message"],
       });
+      let signature = await provider.getSigner();
+      console.log(signature);
+      console.log("address->", await signature.getAddress());
+      let contract = new Contract(contractAddress, ABI.abi, signature);
+      console.log(contract);
+      console.log(random);
+
+      await contract.uploadByOur(
+        input,
+        `${data["message"]} entries updated In DB!!`,
+        "update",
+        `${random}`
+      );
     } else if (intent == "DELETE".toLowerCase()) {
       console.log("In Whole Collection Delete Mode!");
 
@@ -194,18 +204,6 @@ const ChatGPTInterface = () => {
         flag: true,
         response: data["message"],
       });
-      let signature = await provider.getSigner();
-      console.log(signature);
-      console.log("address->", await signature.getAddress());
-      let contract = new Contract(contractAddress, ABI.abi, signature);
-      console.log(contract);
-      let random = generateRandom();
-      await contract.uploadByOur(
-        input,
-        `${data["message"]} entries Inseted In DB!!`,
-        "update",
-        `${random}`
-      );
     } else if (intent == "DELETE_CONDITIONED_BASED".toLowerCase()) {
       console.log("In Delete Condition based!!!");
       // give me the data whose name hogaya and age is <=19 from database name jenil and collection name pamrar
@@ -331,7 +329,7 @@ const ChatGPTInterface = () => {
       console.log(contract);
       let random = generateRandom();
       console.log(random);
-      
+
       await contract.uploadByOur(
         input,
         `${data["insertedCount"]} entries Inseted In DB!!`,
@@ -364,7 +362,8 @@ const ChatGPTInterface = () => {
         <div
           className={`flex flex-row h-screen mt-20 ${
             isDarkMode ? "bg-black text-white" : "bg-gray-100 text-gray-900"
-          }`}>
+          }`}
+        >
           {/* <div>
         <button
           onClick={async () => {
@@ -409,7 +408,8 @@ const ChatGPTInterface = () => {
                   } `}
                   onClick={() => {
                     setWorkingUri("mongodb://localhost:27017/");
-                  }}>
+                  }}
+                >
                   local host Database
                 </h1>
 
@@ -418,7 +418,8 @@ const ChatGPTInterface = () => {
                     allDatabases.map((db, index) => (
                       <li
                         className="w-full px-5 py-2 text-sm bg-[#292929] rounded-2xl text-center hover:bg-[#626262] hover:scale-105 transition-all duration-100"
-                        key={index}>
+                        key={index}
+                      >
                         {db["name"]}
                       </li>
                     ))
@@ -437,7 +438,8 @@ const ChatGPTInterface = () => {
               }`}
                   onClick={() => {
                     setWorkingUri();
-                  }}>
+                  }}
+                >
                   another database
                 </h1>
                 <ul className="gap-2 flex flex-col">
@@ -445,7 +447,8 @@ const ChatGPTInterface = () => {
                     anotherData.map((db, index) => (
                       <li
                         className="w-full px-5 py-2 text-sm bg-[#292929] rounded-2xl text-center hover:bg-[#626262] hover:scale-105 transition-all duration-100"
-                        key={index}>
+                        key={index}
+                      >
                         {db["name"]}
                       </li>
                     ))
@@ -525,7 +528,8 @@ const ChatGPTInterface = () => {
                     console.error("Error:", error.message);
                   }
                 }}
-                className="px-4 w-full py-2 rounded-lg cs">
+                className="px-4 w-full py-2 rounded-lg cs"
+              >
                 Connect
               </button>
             </div>
@@ -538,7 +542,8 @@ const ChatGPTInterface = () => {
                 readDataOperation.response.map((obj, index) => (
                   <div
                     key={index}
-                    className="p-4 border rounded-lg bg-[#292929] text-white">
+                    className="p-4 border rounded-lg bg-[#292929] text-white"
+                  >
                     <pre>{JSON.stringify(obj, null, 2)}</pre>
                   </div>
                 ))}
@@ -566,7 +571,8 @@ const ChatGPTInterface = () => {
             <div
               className={`p-4 border-t   ${
                 isDarkMode ? "border-[#292929] " : "border-gray-300 bg-white"
-              }`}>
+              }`}
+            >
               <div className="w-full  flex items-center space-x-3 ">
                 <div className="card w-full hover:p-1">
                   <input
@@ -590,7 +596,8 @@ const ChatGPTInterface = () => {
                       handleSend();
                     }
                   }}
-                  onClick={handleSend}>
+                  onClick={handleSend}
+                >
                   Send
                 </button>
               </div>
