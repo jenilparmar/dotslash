@@ -8,7 +8,7 @@ const pixelFont = Pixelify_Sans({
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 w-full h-20 flex flex-row justify-between px-6 items-center ">
+    <div className="border-b-2 z-10 bg-black border-[#292929] fixed top-0 w-full h-20 flex flex-row justify-between px-6 items-center ">
       {/* Brand Name */}
       <div
         className={`${pixelFont.className} text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-green-500`}

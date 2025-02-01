@@ -10,6 +10,7 @@ import Databases from "./component/Databases";
 import { generateRandom } from "../utils/generateRandom";
 import Image from "next/image";
 import { set } from "rsuite/esm/internals/utils/date";
+import Navbar from "./component/Navbar";
 const uri = "mongodb://localhost:27017/";
 
 const ChatGPTInterface = () => {
@@ -77,7 +78,7 @@ const ChatGPTInterface = () => {
       paragraph: input,
     };
     setLoading(true);
-    const res = await fetch("http://192.168.1.14:5000/getIntent", {
+    const res = await fetch("http://172.16.44.183:5000/getIntent", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -343,8 +344,11 @@ const ChatGPTInterface = () => {
   if (!hydrated) return null;
 
   return (
-    <div
-      className={`flex flex-row h-screen ${
+  <>
+<div className="flex flex-col justify-start">
+<Navbar/>
+  <div
+      className={`flex flex-row h-screen mt-20 ${
         isDarkMode ? "bg-black text-white" : "bg-gray-100 text-gray-900"
       }`}
     >
@@ -549,11 +553,11 @@ const ChatGPTInterface = () => {
 
         {/* Input Field */}
         <div
-          className={`p-4 border-t ${
+          className={`p-4 border-t   ${
             isDarkMode ? "border-[#292929] " : "border-gray-300 bg-white"
           }`}
         >
-          <div className="w-full flex items-center space-x-3 ">
+          <div className="w-full  flex items-center space-x-3 ">
             <div className="card w-full hover:p-1">
               <input
                 type="text"
@@ -584,6 +588,9 @@ const ChatGPTInterface = () => {
         </div>
       </div>
     </div>
+
+</div>
+  </>
   );
 };
 
