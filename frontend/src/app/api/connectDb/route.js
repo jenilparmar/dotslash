@@ -6,7 +6,7 @@ export async function POST(req) {
     const body = await req.json();
     const { connectionString } = body;
 
-    console.log("Received Connection String:", connectionString);
+    // console.log("Received Connection String:", connectionString);
 
     // Check if connection string is provided
     if (!connectionString) {
@@ -33,7 +33,7 @@ export async function POST(req) {
     let databases;
     try {
       databases = await adminDb.admin().listDatabases();
-      console.log("====>", databases);
+      // console.log("====>", databases);
     } catch (err) {
       console.error("Failed to list databases:", err.message);
       await client.close();
