@@ -6,109 +6,123 @@ import { Contract } from "ethers";
 import ABI from "../../artifacts/contracts/Lock.sol/Lock.json";
 
 const View = () => {
-  let [addres,setAddres]=useState("")
-  let [response, setResponse] = useState([]);
-  let [anotheres,setAnotherres]=useState([]);
-  useEffect(() => {
-    let fetchHistory = async () => {
-      let signature = await provider.getSigner();
-      let add = await signature.getAddress();
-      let contract = new Contract(contractAddress, ABI.abi, signature);
-      let res = await contract.viewUserItsellf();
+  const [addres, setAddres] = useState("");
+  const [response, setResponse] = useState([]);
+  const [anotherres, setAnotherres] = useState([]);
 
-      console.log(res);
-      res.map((e) => {
-        console.log(e[0]);
-        setResponse((prev) => {
-          return prev.concat({
+  useEffect(() => {
+    const fetchHistory = async () => {
+      try {
+        let signature = await provider.getSigner();
+        let contract = new Contract(contractAddress, ABI.abi, signature);
+        let res = await contract.viewUserItsellf();
+
+        setResponse(
+          res.map((e) => ({
             userStatement: e[0],
             queryPoint: e[1],
             intent: e[2],
             transaction: e[3],
             time: e[4],
-          });
-        });
-      });
+          }))
+        );
+      } catch (error) {
+        console.error("Error fetching history:", error);
+      }
     };
     fetchHistory();
   }, []);
-  return (
-    <div className="bg-gray-900 min-h-screen max-h-fit flex flex-wrap  justify-evenly gap-x-14">
-       <input type="text" className="h-7" onChange={(e)=>{
-          setAddres(e.target.value);
-      
-    }}></input>
-    <button className="h-7" onClick={async()=>{
-      if(addres==""){
-        alert("fill some add.");
-      }
-      else{
-       let signature = await provider.getSigner();
-       let add = await signature.getAddress();
-       let contract = new Contract(contractAddress, ABI.abi, signature);
-       let res = await contract.viewAll(addres);
- 
-       console.log(res);
-       res.map((e) => {
-         console.log(e[0]);
-         setAnotherres((prev) => {
-           return prev.concat({
-             userStatement: e[0],
-             queryPoint: e[1],
-             intent: e[2],
-             transaction: e[3],
-             time: e[4],
-           });
-         });
-       });
-      
-    }}}>submit</button>
-      {response &&
-        response.map((res, idx) => {
-          return (
-            <div className="min-w-52 " key={idx}>
-              <button
-                onClick={() => {
-                  console.log(response);
-                }}
-              >
-                view
-              </button>
-              <Card
-                statement={res.userStatement}
-                query={res.queryPoint}
-                intent={res.intent}
-                transaction={res.transaction}
-                time={res.time}
-              ></Card>
-            </div>
-          );
-        })}
-      {anotheres &&
-        anotheres.map((res, idx) => {
-          return (
-            <div className="min-w-52 " key={idx}>
-              <button
-                onClick={() => {
-                  console.log(anotheres);
-                }}
-              >
-                view
-              </button>
-              <Card
-                statement={res.userStatement}
-                query={res.queryPoint}
-                intent={res.intent}
-                transaction={res.transaction}
-                time={res.time}
-              ></Card>
-            </div>
-          );
-        })}
 
-       
+  const handleSubmit = async () => {
+    if (addres.trim() === "") {
+      alert("Please enter an address.");
+      return;
+    }
+    try {
+      let signature = await provider.getSigner();
+      let contract = new Contract(contractAddress, ABI.abi, signature);
+      let res = await contract.viewAll(addres);
+
+      setAnotherres(
+        res.map((e) => ({
+          userStatement: e[0],
+          queryPoint: e[1],
+          intent: e[2],
+          transaction: e[3],
+          time: e[4],
+        }))
+      );
+    } catch (error) {
+      console.error("Error fetching data for address:", error);
+    }
+  };
+
+  return (
+    <div className="bg-gray-900 min-h-screen flex flex-col items-center py-10 text-white">
+      {/* Input and Button Section */}
+      <div className="flex gap-4 mb-6">
+        <input
+          type="text"
+          className="h-10 w-72 px-3 text-black rounded-md outline-none border border-gray-400"
+          placeholder="Enter address..."
+          value={addres}
+          onChange={(e) => setAddres(e.target.value)}
+        />
+        <button
+          className="h-10 px-5 bg-gradient-to-r from-green-500  to-blue-500  rounded-md  transition-all"
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      </div>
+
+      {/* Response Cards */}
+      {response.length > 0 && (
+        <div className="w-full max-w-4xl">
+          <h2 className="text-xl font-semibold mb-4 text-center">
+            Your Transactions
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6">
+            {response.map((res, idx) => (
+              <Card
+                key={idx}
+                statement={res.userStatement}
+                query={res.queryPoint}
+                intent={res.intent}
+                transaction={res.transaction}
+                time={res.time}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Divider Line */}
+      {response.length > 0 && anotherres.length > 0 && (
+        <hr className="w-3/4 my-8 border-t-2 border-gray-600" />
+      )}
+
+      {/* Another Response Cards */}
+      {anotherres.length > 0 && (
+        <div className="w-full max-w-4xl">
+          <h2 className="text-xl font-semibold mb-4 text-center">
+            Searched Transactions
+          </h2>
+          <div className="flex flex-wrap justify-center gap-6">
+            {anotherres.map((res, idx) => (
+              <Card
+                key={idx}
+                statement={res.userStatement}
+                query={res.queryPoint}
+                intent={res.intent}
+                transaction={res.transaction}
+                time={res.time}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
-    
   );
 };
 

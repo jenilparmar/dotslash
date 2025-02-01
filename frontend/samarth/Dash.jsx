@@ -379,7 +379,8 @@ const ChatGPTInterface = () => {
         <div
           className={`flex flex-row h-screen mt-20 ${
             isDarkMode ? "bg-black text-white" : "bg-gray-100 text-gray-900"
-          }`}>
+          }`}
+        >
           {/* <div>
         <button
           onClick={async () => {
@@ -424,16 +425,18 @@ const ChatGPTInterface = () => {
                   } `}
                   onClick={() => {
                     setWorkingUri("mongodb://localhost:27017/");
-                  }}>
+                  }}
+                >
                   local host Database
                 </h1>
 
-                <ul className="gap-2 flex flex-col">
+                <ul className="h-[26rem] gap-2 flex flex-col overflow-y-scroll">
                   {allDatabases && allDatabases.length > 0 ? (
                     allDatabases.map((db, index) => (
                       <li
                         className="w-full px-5 py-2 text-sm bg-[#292929] rounded-2xl text-center hover:bg-[#626262] hover:scale-105 transition-all duration-100"
-                        key={index}>
+                        key={index}
+                      >
                         {db["name"]}
                       </li>
                     ))
@@ -442,7 +445,7 @@ const ChatGPTInterface = () => {
                   )}
                 </ul>
               </div>
-              <div className="w-fit border-r-2 border-[#292929]  px-4">
+              <div className="w-fit border-r-2 border-[#292929]  px-4 ">
                 <h1
                   className={`font-semibold text-[#e6e0e0] text-center my-5 ${
                     workinguri != "mongodb://localhost:27017/"
@@ -451,16 +454,29 @@ const ChatGPTInterface = () => {
                   }
               }`}
                   onClick={() => {
-                    setWorkingUri();
-                  }}>
+                    let signature = provider.getSigner();
+                    let contract = new Contract(
+                      contractAddress,
+                      ABI.abi,
+                      signature
+                    );
+                    if (workinguri == "mongodb://localhost:27017/") {
+                      alert(
+                        "Please connect to  others database who give you access"
+                      );
+                    } else if (workinguri != "mongodb://localhost:27017/") {
+                    }
+                  }}
+                >
                   another database
                 </h1>
-                <ul className="gap-2 flex flex-col">
+                <ul className="gap-2 flex flex-col overflow-y-scroll">
                   {anotherData && anotherData.length > 0 ? (
                     anotherData.map((db, index) => (
                       <li
                         className="w-full px-5 py-2 text-sm bg-[#292929] rounded-2xl text-center hover:bg-[#626262] hover:scale-105 transition-all duration-100"
-                        key={index}>
+                        key={index}
+                      >
                         {db["name"]}
                       </li>
                     ))
@@ -471,7 +487,7 @@ const ChatGPTInterface = () => {
               </div>
             </div>
 
-            <div className="flex flex-col px-2 items-center space-y-4 p-1 border-2 border-[#292929]">
+            <div className="flex flex-col px-2 items-center space-y-4 p-1 border-2 bg-black z-10 border-[#292929]">
               <h2 className="text-xl text-center text-white">
                 Connect to MongoDB
               </h2>
@@ -540,7 +556,8 @@ const ChatGPTInterface = () => {
                     console.error("Error:", error.message);
                   }
                 }}
-                className="px-4 w-full py-2 rounded-lg cs">
+                className="px-4 w-full py-2 rounded-lg cs"
+              >
                 Connect
               </button>
             </div>
@@ -553,7 +570,8 @@ const ChatGPTInterface = () => {
                 readDataOperation.response.map((obj, index) => (
                   <div
                     key={index}
-                    className="p-4 border rounded-lg bg-[#292929] text-white">
+                    className="p-4 border rounded-lg bg-[#292929] text-white"
+                  >
                     <pre>{JSON.stringify(obj, null, 2)}</pre>
                   </div>
                 ))}
@@ -581,7 +599,8 @@ const ChatGPTInterface = () => {
             <div
               className={`p-4 border-t   ${
                 isDarkMode ? "border-[#292929] " : "border-gray-300 bg-white"
-              }`}>
+              }`}
+            >
               <div className="w-full  flex items-center space-x-3 ">
                 <div className="card w-full hover:p-1 flex flex-col gap-2">
                   <input
@@ -631,7 +650,8 @@ const ChatGPTInterface = () => {
                       handleSend();
                     }
                   }}
-                  onClick={handleSend}>
+                  onClick={handleSend}
+                >
                   Send
                 </button>
               </div>

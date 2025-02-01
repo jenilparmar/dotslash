@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function Card({ statement, query, intent, transaction, date }) {
   let [input, setInput] = useState({ dbName: "", collectionName: "" });
   let [names, setNames] = useState(false);
+
   console.log(intent);
   return (
     <div className="max-w-sm mx-auto my-4 p-6 bg-gradient-to-br from-white to-gray-50 border border-gray-100 rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-300 transform hover:-translate-y-1">
@@ -61,95 +62,105 @@ export default function Card({ statement, query, intent, transaction, date }) {
           onClick={() => {
             setNames(true);
           }}
-          className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          className="px-5 py-2.5 bg-gradient-to-r from-green-500  to-blue-500 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
         >
           Add Info
         </button>
         {["update", "delete", "insert"].includes(intent) ? (
           <button
-            className="px-5 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+            className="px-5 py-2.5 bg-gradient-to-r from-green-500  to-blue-500 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             onClick={async () => {
-              if (intent === "insert") {
-                try {
-                  let res = await fetch("/api/RevertInsert", {
+              if (!input.collectionName || !input.dbName) {
+                alert("First Add The Add Info!!!");
+              } else {
+                if (intent === "insert") {
+                  try {
+                    let res = await fetch("/api/RevertInsert", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json", // ✅ Fix: Specify content type
+                      },
+                      body: JSON.stringify({
+                        nameOfDb: input.dbName,
+                        nameOfCollection: input.collectionName,
+                        paragraph: statement,
+                        MongodbURI: "mongodb://localhost:27017",
+                      }),
+                    });
+
+                    if (!res.ok) {
+                      throw new Error(`HTTP error! Status: ${res.status}`); // ✅ Fix: Handle HTTP errors
+                    }
+
+                    let reso = await res.json();
+                    console.log(reso?.message || "No message returned"); // ✅ Fix: Avoid potential undefined errors
+
+                    if (reso?.statusCode === 200) {
+                      alert("Data Reverted Successfully!!");
+                    } else {
+                      console.warn("Revert failed:", reso);
+                    }
+                  } catch (error) {
+                    console.error("Error in RevertInsert:", error); // ✅ Fix: Proper error handling
+                    alert("Failed to revert data.");
+                  }
+                } else if (intent === "delete") {
+                  let res = await fetch("/api/getdeleteddata", {
                     method: "POST",
-                    headers: {
-                      "Content-Type": "application/json", // ✅ Fix: Specify content type
-                    },
                     body: JSON.stringify({
-                      nameOfDb: input.dbName,
-                      nameOfCollection: input.collectionName,
-                      paragraph: statement,
-                      MongodbURI: "mongodb://localhost:27017",
+                      hash: transaction,
                     }),
                   });
-
-                  if (!res.ok) {
-                    throw new Error(`HTTP error! Status: ${res.status}`); // ✅ Fix: Handle HTTP errors
-                  }
-
                   let reso = await res.json();
-                  console.log(reso?.message || "No message returned"); // ✅ Fix: Avoid potential undefined errors
-
-                  if (reso?.statusCode === 200) {
-                    alert("Data Reverted Successfully!!");
-                  } else {
-                    console.warn("Revert failed:", reso);
-                  }
-                } catch (error) {
-                  console.error("Error in RevertInsert:", error); // ✅ Fix: Proper error handling
-                  alert("Failed to revert data.");
-                }
-              } else if (intent === "delete") {
-                let res = await fetch("/api/getdeleteddata", {
-                  method: "POST",
-                  body: JSON.stringify({
-                    hash: transaction,
-                  }),
-                });
-                let reso = await res.json();
-                console.log(reso.data.data);
-                console.log(input.dbName, input.collectionName, reso.data.data);
-
-                let re = await fetch("/api/InsertData", {
-                  method: "POST",
-                  body: JSON.stringify({
+                  // console.log(reso.data.data);
+                  // console.log(input.dbName, input.collectionName, reso.data.data);
+                  console.log({
                     nameOfDB: input.dbName,
                     nameOfColletion: input.collectionName,
                     data: reso.data.data,
                     MongodbUri: "mongodb://localhost:27017",
-                  }),
-                });
-                console.log(re);
-                if (re?.statusCode == 200) {
-                  alert("Deleted Data Reverted back to your Localhost!!!");
-                }
-              } else if (intent == "update") {
-                console.log("----<> update");
-                let res = await fetch("/api/getdeleteddata", {
-                  method: "POST",
-                  body: JSON.stringify({ hash: transaction }),
-                });
-                let m = await res.json();
-                // let n = m.data.data[0]._id;
-                // console.log(m.data.data);
+                  });
 
-                if (!input.dbName || !input.collectionName) {
-                  alert("Please enter database and collection name");
-                  return;
+                  let re = await fetch("/api/InsertData", {
+                    method: "POST",
+                    body: JSON.stringify({
+                      nameOfDB: input.dbName,
+                      nameOfColletion: input.collectionName,
+                      data: reso.data.data,
+                      MongodbUri: "mongodb://localhost:27017",
+                    }),
+                  });
+                  console.log(re);
+                  if (re?.statusCode == 200) {
+                    alert("Deleted Data Reverted back to your Localhost!!!");
+                  }
+                } else if (intent == "update") {
+                  console.log("----<> update");
+                  let res = await fetch("/api/getdeleteddata", {
+                    method: "POST",
+                    body: JSON.stringify({ hash: transaction }),
+                  });
+                  let m = await res.json();
+                  // let n = m.data.data[0]._id;
+                  // console.log(m.data.data);
+
+                  if (!input.dbName || !input.collectionName) {
+                    alert("Please enter database and collection name");
+                    return;
+                  }
+                  let resoponse = await fetch("/api/RevertUpdate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                      dbName: input.dbName,
+                      collectionName: input.collectionName,
+                      MongoDbUri: "mongodb://localhost:27017",
+                      newData: m.data.data,
+                    }),
+                  });
+                  let response = await resoponse.json();
+                  console.log(response);
                 }
-                let resoponse = await fetch("/api/RevertUpdate", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({
-                    dbName: input.dbName,
-                    collectionName: input.collectionName,
-                    MongoDbUri: "mongodb://localhost:27017",
-                    newData: m.data.data,
-                  }),
-                });
-                let response = await resoponse.json();
-                console.log(response);
               }
             }}
           >
