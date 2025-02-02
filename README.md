@@ -1,5 +1,12 @@
 # 🚀 NLP & Blockchain-Powered NoSQL Database Management
 
+## 🔷 Now Integrated with Polygon Testnet & Cardano zkEVM!
+We have added **Blockchain integration with Polygon Testnet and Cardano zkEVM**, ensuring enhanced scalability, security, and decentralized control over database operations.
+
+### 🔗 Check Transparency of Our Platform
+You can verify transactions and transparency using our deployed smart contract on **Polygon zkEVM Testnet**:  
+[View on Polygonscan](https://cardona-zkevm.polygonscan.com/address/0x37D31345F164Ab170B19bc35225Abc98Ce30b46A)
+
 ## 📌 Overview
 Managing NoSQL databases like MongoDB can be complex, especially for small businesses and home-based enterprises. Our platform simplifies this by integrating **Natural Language Processing (NLP) and Blockchain technology** to provide a secure, no-code solution for database operations.
 
@@ -30,5 +37,8 @@ Managing NoSQL databases like MongoDB can be complex, especially for small busin
 3. **Database Operation is Executed** – The system performs the requested action securely.
 4. **Blockchain Ensures Security** – Smart contracts manage access, and changes are logged.
 5. **Revert System Available** – Users can reverse actions transparently when needed.
+
+## 📢 Get Started
+Stay tuned for installation steps and API documentation! 🚀
 
 
