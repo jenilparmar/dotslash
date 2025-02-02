@@ -5,7 +5,7 @@ import { Contract } from "ethers";
 import ABI from "../../artifacts/contracts/Lock.sol/Lock.json";
 
 export default function Perm() {
-  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+  const contractAddress = "0x37D31345F164Ab170B19bc35225Abc98Ce30b46A";
 
   const fetchContract = async () => {
     const signer = await provider.getSigner();
