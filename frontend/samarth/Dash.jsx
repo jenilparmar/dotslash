@@ -19,6 +19,7 @@ const ChatGPTInterface = () => {
   const [dbs, setDbs] = useState([
     { name: "Localhost", url: "mongodb://localhost:27017/" },
   ]);
+  let [uris, setUris] = useState("mongodb://localhost:27017/");
   const [messages, setMessages] = useState(() => []);
   const [input, setInput] = useState("");
   const [allDatabases, setAllDatabase] = useState([]);
@@ -116,7 +117,7 @@ const ChatGPTInterface = () => {
         body: JSON.stringify({
           nameOfDB: dbName,
           nameOfCollection: colName,
-          MongoDbUri: uri,
+          MongoDbUri: workinguri,
         }),
       });
       // .then((response) => response.json())
@@ -140,7 +141,7 @@ const ChatGPTInterface = () => {
           nameOfDB: dbName,
           nameOfCollection: colName,
           dataInArray: [{ parmar: "jenil" }], // Example data to insert
-          MongoDbUri: uri,
+          MongoDbUri: workinguri,
         }),
       });
       const data = await QueryDone.json();
@@ -155,48 +156,63 @@ const ChatGPTInterface = () => {
       // .then((data) => console.log(data))  // Log the response data
       // .catch((error) => console.error('Error:', error));
     } else if (intent == "UPDATE".toLowerCase()) {
-      console.log("In Update Mode!!!!");
-      const filter = parseQuery(input);
-      // console.log(filter);
+      try {
+        console.log("In Update Mode!!!!");
+        const filter = parseQuery(input);
+        const changeArributes = ExtractDataFromPara(input);
+        console.log("in updateeee mode;llll-----", changeArributes);
 
-      const changeArributes = ExtractDataFromPara(input);
-      console.log("in updateeee mode;llll-----", changeArributes);
+        const random = window.crypto
+          .randomUUID()
+          .replace(/-/g, "")
+          .slice(0, 16);
+        const QueryDone = await fetch("/api/Update", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nameOfDB: dbName,
+            nameOfCollection: colName,
+            atrs: filter,
+            MongoDbUri: workinguri,
+            changeAtrs: changeArributes,
+            hash: random,
+          }),
+        });
 
-      const random = window.crypto.randomUUID().replace(/-/g, "").slice(0, 16);
-      const QueryDone = await fetch("/api/Update", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nameOfDB: dbName,
-          nameOfCollection: colName,
-          atrs: filter,
-          MongoDbUri: uri,
-          changeAtrs: changeArributes,
-          hash: random,
-        }),
-      });
+        const data = await QueryDone.json();
 
-      const data = await QueryDone.json();
-      setReadDataOperation(false);
-      setGeneralOpeeration({
-        flag: true,
-        response: data["message"],
-      });
-      let signature = await provider.getSigner();
-      console.log(signature);
-      console.log("address->", await signature.getAddress());
-      let contract = new Contract(contractAddress, ABI.abi, signature);
-      console.log(contract);
-      console.log(random);
+        if (!QueryDone.ok) {
+          throw new Error(data.message || "Update request failed!");
+        }
 
-      await contract.uploadByOur(
-        input,
-        `${data["message"]} entries updated In DB!!`,
-        "update",
-        `${random}`
-      );
+        setReadDataOperation(false);
+        setGeneralOpeeration({
+          flag: true,
+          response: data["message"],
+        });
+
+        if (data["message"] > 0) {
+          let signature = await provider.getSigner();
+          console.log("Signer Address->", await signature.getAddress());
+
+          let contract = new Contract(contractAddress, ABI.abi, signature);
+          console.log(contract);
+          console.log(random);
+
+          await contract.uploadByOur(
+            input,
+            `${data["message"]} entries updated In DB!!`,
+            "update",
+            `${random}`
+          );
+        } else {
+          alert("No entries found to update!");
+        }
+      } catch (error) {
+        console.error("Error in update operation:", error.message);
+      }
     } else if (intent == "DELETE".toLowerCase()) {
       console.log("In Whole Collection Delete Mode!");
       if (
@@ -210,10 +226,11 @@ const ChatGPTInterface = () => {
           body: JSON.stringify({
             nameOfDB: dbName,
             nameOfCollection: colName,
-            MongoDbUri: uri,
+            MongoDbUri: workinguri,
           }),
         });
         const data = await QueryDone.json();
+        console.log(data);
         setReadDataOperation(false);
 
         setGeneralOpeeration({
@@ -221,63 +238,93 @@ const ChatGPTInterface = () => {
           response: data["message"],
         });
       }
-    } else if (intent == "DELETE_CONDITIONED_BASED".toLowerCase()) {
-      console.log("In Delete Condition based!!!");
-      // give me the data whose name hogaya and age is <=19 from database name jenil and collection name pamrar
-      const filter = parseQuery(input);
+    } else if (intent === "DELETE_CONDITIONED_BASED".toLowerCase()) {
+      try {
+        console.log("Executing Conditional Deletion...");
 
-      const QueryDone = await fetch("/api/DeleteConditionBased", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nameOfDB: dbName,
-          nameOfCollection: colName,
-          atrs: filter,
-          MongoDbUri: uri,
-        }),
-      });
-      const data = await QueryDone.json();
-      setReadDataOperation(false);
+        // Extract filter conditions from input
+        const filter = parseQuery(input);
 
-      setGeneralOpeeration({
-        response: `${data["deletedCount"]} entries deleted!!`,
-        flag: true,
-      });
-      let signature = await provider.getSigner();
-      console.log(signature);
-      console.log("address->", await signature.getAddress());
-      let contract = new Contract(contractAddress, ABI.abi, signature);
-      console.log(contract);
-      const random = window.crypto.randomUUID().replace(/-/g, "").slice(0, 16);
-      console.log(random);
-      // yahaa seee insert karvanaaa haii mujhe ye dataaa mere db mnaiiiiii
-      console.log("this is data in delete----->", data["data"]);
-      const res = await fetch("/api/inserDeleted", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          data: data["data"],
-          hash: random,
-        }),
-      });
-      console.log(
-        "---->",
-        "delted condition based",
-        contract,
-        input,
-        `${data["deletedCount"]} entries deleted In DB!!`,
-        `${random}`
-      );
-      await contract.uploadByOur(
-        input,
-        `${data["deletedCount"]} entries deleted In DB!!`,
-        "delete",
-        `${random}`
-      );
+        // Send request to delete matching entries
+        const deleteResponse = await fetch("/api/DeleteConditionBased", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nameOfDB: dbName,
+            nameOfCollection: colName,
+            atrs: filter,
+            MongoDbUri: workinguri,
+          }),
+        });
+
+        const deleteData = await deleteResponse.json();
+
+        if (!deleteResponse.ok) {
+          throw new Error(deleteData.message || "Failed to delete entries.");
+        }
+
+        setReadDataOperation(false);
+        setGeneralOpeeration({
+          response: `${deleteData["deletedCount"]} entries deleted!`,
+          flag: true,
+        });
+
+        // Generate a unique identifier
+        const randomHash = window.crypto
+          .randomUUID()
+          .replace(/-/g, "")
+          .slice(0, 16);
+        if (deleteData["deletedCount"] > 0) {
+          // Retrieve signer and contract instance
+          let signer = await provider.getSigner();
+          console.log("Signer Address:", await signer.getAddress());
+
+          let contractInstance = new Contract(contractAddress, ABI.abi, signer);
+          console.log("Contract Instance:", contractInstance);
+
+          console.log("Deleted data:", deleteData["data"]);
+
+          // Store deleted data in another collection
+          const insertResponse = await fetch("/api/inserDeleted", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              data: deleteData["data"],
+              hash: randomHash,
+            }),
+          });
+
+          if (!insertResponse.ok) {
+            throw new Error(
+              "Failed to insert deleted data into backup storage."
+            );
+          }
+
+          console.log(
+            "Deletion Summary:",
+            contractInstance,
+            input,
+            `${deleteData["deletedCount"]} entries deleted from DB!`,
+            `${randomHash}`
+          );
+
+          // Log deletion operation on contract
+          await contractInstance.uploadByOur(
+            input,
+            `${deleteData["deletedCount"]} entries deleted from DB!`,
+            "delete",
+            randomHash
+          );
+        } else {
+          alert("No entries found to delete!");
+        }
+      } catch (error) {
+        console.error("Error during conditional deletion:", error.message);
+      }
     } else if (intent == "READ_CONDITION_BASED_DATA".toLowerCase()) {
       console.log("IN Read condition data");
 
@@ -294,7 +341,7 @@ const ChatGPTInterface = () => {
             nameOfDB: dbName,
             nameOfCollection: colName,
             atrs: filter, // Query conditions
-            MongoDbUri: uri,
+            MongoDbUri: workinguri,
           }),
         });
 
@@ -313,51 +360,69 @@ const ChatGPTInterface = () => {
         console.error("Error:", error);
       }
     } else {
-      console.log("In Insert Data Mode!!!");
-      const dataToInsert = ExtractDataFromPara(input);
-      const QueryDone = await fetch("/api/InsertData", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nameOfDB: dbName,
-          nameOfColletion: colName,
-          data: dataToInsert, // Query conditions
-          MongodbUri: uri,
-        }),
-      });
-      const data = await QueryDone.json();
-      setReadDataOperation(false);
+      try {
+        console.log("Entering Insert Data Mode...");
 
-      setGeneralOpeeration({
-        response: `${data["insertedCount"]} entries Inseted In DB!!`,
-        flag: true,
-      });
-      console.log(
-        "----->",
+        // Extracting data to insert
+        const dataToInsert = ExtractDataFromPara(input);
 
-        `${data["insertedCount"]} entries Inseted In DB!!`
-      );
-      let signature = await provider.getSigner();
-      console.log(signature);
-      console.log("address->", await signature.getAddress());
-      let contract = new Contract(contractAddress, ABI.abi, signature);
-      console.log("--->comtraccttt", contract);
-      let random = window.crypto.randomUUID().replace(/-/g, "").slice(0, 16);
-      console.log(random);
+        // Sending insert request
+        const insertResponse = await fetch("/api/InsertData", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nameOfDB: dbName,
+            nameOfColletion: colName,
+            data: dataToInsert,
+            MongodbUri: workinguri,
+          }),
+        });
 
-      await contract.uploadByOur(
-        input,
-        `${data["insertedCount"]} entries Inseted In DB!!`,
-        "insert",
-        `${random}`
-      );
-      // await contract.uploadByOur(
-      //   input,
-      //   `"2 entries Inseted In DB!!"`,
-      //   "insert"
-      // );
+        const insertData = await insertResponse.json();
+
+        if (!insertResponse.ok) {
+          throw new Error(insertData.message || "Failed to insert data.");
+        }
+
+        setReadDataOperation(false);
+        setGeneralOpeeration({
+          response: `${insertData["insertedCount"]} entries inserted in DB!`,
+          flag: true,
+        });
+
+        console.log(
+          `Successfully inserted ${insertData["insertedCount"]} entries in DB!`
+        );
+        if (insertData["insertedCount"] > 0) {
+          // Generate a unique identifier
+          const randomHash = window.crypto
+            .randomUUID()
+            .replace(/-/g, "")
+            .slice(0, 16);
+
+          // Get signer and contract instance
+          let signer = await provider.getSigner();
+          console.log("Signer Address:", await signer.getAddress());
+
+          let contractInstance = new Contract(contractAddress, ABI.abi, signer);
+          console.log("Contract Instance:", contractInstance);
+          console.log("Generated Hash:", randomHash);
+
+          // Upload operation to contract
+          await contractInstance.uploadByOur(
+            input,
+            `${insertData["insertedCount"]} entries inserted in DB!`,
+            "insert",
+            randomHash
+          );
+        } else {
+          alert("No data inserted!");
+        }
+      } catch (error) {
+        console.error("Error during data insertion:", error.message);
+      }
     }
     // let signature = await provider.getSigner();
     // console.log(signature);
@@ -461,10 +526,13 @@ const ChatGPTInterface = () => {
                       signature
                     );
                     if (workinguri == "mongodb://localhost:27017/") {
-                      alert(
-                        "Please connect to  others database who give you access"
-                      );
+                      if (uris == "mongodb://localhost:27017/") {
+                        alert("Please Connect to another database");
+                      } else {
+                        setWorkingUri(uris);
+                      }
                     } else if (workinguri != "mongodb://localhost:27017/") {
+                      setWorkingUri(uris);
                     }
                   }}
                 >
@@ -525,7 +593,7 @@ const ChatGPTInterface = () => {
                       signature
                     );
                     const res = await contract.viewConnectionString(add);
-                    setWorkingUri(res);
+                    setUris(res);
                     console.log("Contract Response: ", res);
 
                     // Call the Next.js API to connect to MongoDB

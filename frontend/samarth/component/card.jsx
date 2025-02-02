@@ -52,12 +52,13 @@ export default function Card({ statement, query, intent, transaction, date }) {
       )}
       <div className="flex items-center justify-between">
         <p className="text-xs text-gray-500 italic">
-          {new Date(date).toLocaleDateString("en-US", {
+          {new Date(Number(date) / 1000000).toLocaleDateString("en-US", {
             year: "numeric",
             month: "short",
             day: "numeric",
           })}
         </p>
+
         <button
           onClick={() => {
             setNames(true);
@@ -95,6 +96,7 @@ export default function Card({ statement, query, intent, transaction, date }) {
                     let reso = await res.json();
                     console.log(reso?.message || "No message returned"); // ✅ Fix: Avoid potential undefined errors
 
+                    console.log("---> code", reso);
                     if (reso?.statusCode === 200) {
                       alert("Data Reverted Successfully!!");
                     } else {

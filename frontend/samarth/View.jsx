@@ -83,16 +83,18 @@ const View = () => {
             Your Transactions
           </h2>
           <div className="flex flex-wrap justify-center gap-6">
-            {response.map((res, idx) => (
-              <Card
-                key={idx}
-                statement={res.userStatement}
-                query={res.queryPoint}
-                intent={res.intent}
-                transaction={res.transaction}
-                time={res.time}
-              />
-            ))}
+            {response.map((res, idx) => {
+              return (
+                <Card
+                  key={idx}
+                  statement={res.userStatement}
+                  query={res.queryPoint}
+                  intent={res.intent}
+                  transaction={res.transaction}
+                  date={res.time}
+                />
+              );
+            })}
           </div>
         </div>
       )}
