@@ -162,7 +162,7 @@ const ChatGPTInterface = () => {
         const changeArributes = ExtractDataFromPara(input);
         console.log("in updateeee mode;llll-----", changeArributes);
 
-        const random = window.crypto
+        const randomHash = window.crypto
           .randomUUID()
           .replace(/-/g, "")
           .slice(0, 16);
@@ -177,7 +177,7 @@ const ChatGPTInterface = () => {
             atrs: filter,
             MongoDbUri: workinguri,
             changeAtrs: changeArributes,
-            hash: random,
+            hash: randomHash,
           }),
         });
 
@@ -199,13 +199,16 @@ const ChatGPTInterface = () => {
 
           let contract = new Contract(contractAddress, ABI.abi, signature);
           console.log(contract);
-          console.log(random);
+          console.log(randomHash);
 
           await contract.uploadByOur(
             input,
             `${data["message"]} entries updated In DB!!`,
             "update",
-            `${random}`
+            `${randomHash}`,
+            dbName,
+            colName,
+            workinguri
           );
         } else {
           alert("No entries found to update!");
@@ -309,7 +312,10 @@ const ChatGPTInterface = () => {
             contractInstance,
             input,
             `${deleteData["deletedCount"]} entries deleted from DB!`,
-            `${randomHash}`
+            `${randomHash}`,
+            dbName,
+            colName,
+            workinguri
           );
 
           // Log deletion operation on contract
@@ -317,7 +323,10 @@ const ChatGPTInterface = () => {
             input,
             `${deleteData["deletedCount"]} entries deleted from DB!`,
             "delete",
-            randomHash
+            randomHash,
+            dbName,
+            colName,
+            workinguri
           );
         } else {
           alert("No entries found to delete!");
@@ -415,7 +424,10 @@ const ChatGPTInterface = () => {
             input,
             `${insertData["insertedCount"]} entries inserted in DB!`,
             "insert",
-            randomHash
+            randomHash,
+            dbName,
+            colName,
+            workinguri
           );
         } else {
           alert("No data inserted!");

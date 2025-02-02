@@ -23,7 +23,9 @@ const View = () => {
             queryPoint: e[1],
             intent: e[2],
             transaction: e[3],
-            time: e[4],
+            dbName: e[4],
+            collectionName: e[5],
+            uri: e[6],
           }))
         );
       } catch (error) {
@@ -49,7 +51,9 @@ const View = () => {
           queryPoint: e[1],
           intent: e[2],
           transaction: e[3],
-          time: e[4],
+          dbName: e[4],
+          collectionName: e[5],
+          uri: e[6],
         }))
       );
     } catch (error) {
@@ -91,7 +95,9 @@ const View = () => {
                   query={res.queryPoint}
                   intent={res.intent}
                   transaction={res.transaction}
-                  date={res.time}
+                  dbName={res.dbName}
+                  collectionName={res.collectionName}
+                  uri={res.uri}
                 />
               );
             })}
@@ -118,7 +124,9 @@ const View = () => {
                 query={res.queryPoint}
                 intent={res.intent}
                 transaction={res.transaction}
-                time={res.time}
+                dbName={res.dbName}
+                collectionName={res.collectionName}
+                uri={res.uri}
               />
             ))}
           </div>

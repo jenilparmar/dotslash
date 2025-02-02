@@ -2,8 +2,15 @@ import { hash } from "crypto";
 
 import { useState } from "react";
 
-export default function Card({ statement, query, intent, transaction, date }) {
-  let [input, setInput] = useState({ dbName: "", collectionName: "" });
+export default function Card({
+  statement,
+  query,
+  intent,
+  transaction,
+  dbName,
+  collectionName,
+  uri,
+}) {
   let [names, setNames] = useState(false);
 
   console.log(intent);
@@ -51,19 +58,11 @@ export default function Card({ statement, query, intent, transaction, date }) {
         <></>
       )}
       <div className="flex items-center justify-between">
-        <button
-          onClick={() => {
-            setNames(true);
-          }}
-          className="px-5 py-2.5 bg-gradient-to-r from-green-500  to-blue-500 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-        >
-          Add Info
-        </button>
         {["update", "delete", "insert"].includes(intent) ? (
           <button
             className="px-5 py-2.5 bg-gradient-to-r from-green-500  to-blue-500 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
             onClick={async () => {
-              if (!input.collectionName || !input.dbName) {
+              if (!collectionName || !dbName) {
                 alert("First Add The Add Info!!!");
               } else {
                 if (intent === "insert") {
@@ -74,10 +73,10 @@ export default function Card({ statement, query, intent, transaction, date }) {
                         "Content-Type": "application/json", // ✅ Fix: Specify content type
                       },
                       body: JSON.stringify({
-                        nameOfDb: input.dbName,
-                        nameOfCollection: input.collectionName,
+                        nameOfDb: dbName,
+                        nameOfCollection: collectionName,
                         paragraph: statement,
-                        MongodbURI: "mongodb://localhost:27017",
+                        MongodbURI: uri,
                       }),
                     });
 
@@ -107,21 +106,21 @@ export default function Card({ statement, query, intent, transaction, date }) {
                   });
                   let reso = await res.json();
                   // console.log(reso.data.data);
-                  // console.log(input.dbName, input.collectionName, reso.data.data);
+                  // console.log(dbName, collectionName, reso.data.data);
                   console.log({
-                    nameOfDB: input.dbName,
-                    nameOfColletion: input.collectionName,
+                    nameOfDB: dbName,
+                    nameOfColletion: collectionName,
                     data: reso.data.data,
-                    MongodbUri: "mongodb://localhost:27017",
+                    MongodbUri: uri,
                   });
 
                   let re = await fetch("/api/InsertData", {
                     method: "POST",
                     body: JSON.stringify({
-                      nameOfDB: input.dbName,
-                      nameOfColletion: input.collectionName,
+                      nameOfDB: dbName,
+                      nameOfColletion: collectionName,
                       data: reso.data.data,
-                      MongodbUri: "mongodb://localhost:27017",
+                      MongodbUri: uri,
                     }),
                   });
                   console.log(re);
@@ -138,7 +137,7 @@ export default function Card({ statement, query, intent, transaction, date }) {
                   // let n = m.data.data[0]._id;
                   // console.log(m.data.data);
 
-                  if (!input.dbName || !input.collectionName) {
+                  if (!dbName || !collectionName) {
                     alert("Please enter database and collection name");
                     return;
                   }
@@ -146,9 +145,9 @@ export default function Card({ statement, query, intent, transaction, date }) {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
-                      dbName: input.dbName,
-                      collectionName: input.collectionName,
-                      MongoDbUri: "mongodb://localhost:27017",
+                      dbName: dbName,
+                      collectionName: collectionName,
+                      MongoDbUri: uri,
                       newData: m.data.data,
                     }),
                   });

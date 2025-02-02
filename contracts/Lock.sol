@@ -11,7 +11,9 @@ contract Lock {
         string queryPoint;
         string intent;
         string transactionId;
-        uint time;
+        string dbName;
+        string collectionName;
+        string connectionString;
     }
 
     struct addressUser {
@@ -30,7 +32,10 @@ contract Lock {
         string memory _userStatement,
         string memory _queryPoint,
         string memory _transactionId,
-        string memory _intent
+        string memory _intent,
+        string memory _dbName,
+        string memory _collectionName,
+        string memory _connectionString
     ) public {
         require(
             ownership[_user][msg.sender],
@@ -43,7 +48,9 @@ contract Lock {
                 _queryPoint,
                 _transactionId,
                 _intent,
-                block.timestamp
+                _dbName,
+                _collectionName,
+                _connectionString
             )
         );
     }
@@ -51,7 +58,10 @@ contract Lock {
         string memory _userStatement,
         string memory _queryPoint,
         string memory _transactionId,
-        string memory _intent
+        string memory _intent,
+        string memory _dbName,
+        string memory _collectionName,
+        string memory _connectionString
     ) public {
         contentList[msg.sender].push(
             content(
@@ -59,7 +69,9 @@ contract Lock {
                 _queryPoint,
                 _transactionId,
                 _intent,
-                block.timestamp
+                _dbName,
+                _collectionName,
+                _connectionString
             )
         );
     }

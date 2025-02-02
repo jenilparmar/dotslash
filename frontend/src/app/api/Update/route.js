@@ -69,6 +69,7 @@ export async function updateData(
       atrs,
       MongoDbUri
     );
+    console.log(nameOfDB, nameOfCollection);
 
     if (!dataToUpdate.length) return "No matching data found";
 
@@ -89,6 +90,7 @@ export async function updateData(
 
       // Perform the update
       const result = await collection.findOneAndUpdate(filter, update);
+      console.log(result);
       let reso = [];
       reso.push(result);
       console.log("----------> rs", reso, "============", hash);
