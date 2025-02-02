@@ -1,0 +1,792 @@
+,Unnamed: 0,text,labels
+783,783,Add this entry into the data structure now.,INSERT
+705,705,Place this data in the records.,INSERT
+335,335,Delete the image.,DELETE
+469,469,Erase all duplicates in the email records.,DELETE_CONDITIONED_BASED
+192,192,Retrieve every log in the service monitoring table.,READ
+765,765,Put this record into the table.,INSERT
+571,571,LIST entries where the country is 'India'.,READ_CONDITION_BASED_DATA
+150,150,Retrieve the full list of documents in the policies table.,READ
+654,654,PULL records of customers who have spent more than $500 this year.,READ_CONDITION_BASED_DATA
+194,194,Get the full records in the accident reports system.,READ
+441,441,Delete the customers whose last purchase was over two years ago.,DELETE_CONDITIONED_BASED
+614,614,DISPLAY all employees who work part-time.,READ_CONDITION_BASED_DATA
+12,12,Add a collection named 'orders'.,CREATE
+0,0,Create a database named 'parmar'.,CREATE
+125,125,Read all available data in the subscriptions file.,READ
+518,518,Delete files uploaded with incorrect formats.,DELETE_CONDITIONED_BASED
+541,541,Erase temporary user sessions marked as expired.,DELETE_CONDITIONED_BASED
+261,261,Edit the shift timings for staff working during weekends.,UPDATE
+337,337,Delete the temporary files.,DELETE
+784,784,Insert this information into the database now.,INSERT
+750,750,Insert this record into the data structure.,INSERT
+17,17,Create a collection with the name 'transactions'.,CREATE
+319,319,Remove the document.,DELETE
+552,552,FETCH records where the user’s age is between 25 and 40.,READ_CONDITION_BASED_DATA
+197,197,Access every detail in the feedback collection.,READ
+187,187,Retrieve all rows from the payment records file.,READ
+562,562,LOOK UP users who haven’t logged in for 30 days.,READ_CONDITION_BASED_DATA
+680,680,Insert this information into the record.,INSERT
+162,162,Retrieve the complete set of data in the inventory file.,READ
+742,742,Please insert this row into the collection.,INSERT
+51,51,Add an API route titled 'create-user'.,CREATE
+624,624,LOOK UP records where the product is 'out of stock'.,READ_CONDITION_BASED_DATA
+227,227,Edit the titles of books published before the year 2000.,UPDATE
+330,330,Delete the server logs.,DELETE
+304,304,Update the availability status for meeting rooms already booked.,UPDATE
+400,400,Delete the application data.,DELETE
+255,255,Adjust the prices for products with fluctuating demand.,UPDATE
+728,728,Please insert this object into the list.,INSERT
+229,229,Update the warranty period for products purchased during the holiday sale.,UPDATE
+141,141,Fetch the entire history of transactions.,READ
+381,381,Delete the execution trace.,DELETE
+753,753,Insert this object into the database immediately.,INSERT
+340,340,Delete the cookies.,DELETE
+217,217,Change the subscription plan for users with an expired membership.,UPDATE
+66,66,Create a directory titled 'logs'.,CREATE
+97,97,Set up a table schema in 'sales_data'.,CREATE
+557,557,FETCH records where the city is 'New York'.,READ_CONDITION_BASED_DATA
+449,449,Delete all logs older than 30 days.,DELETE_CONDITIONED_BASED
+267,267,Edit the rewards for users with loyalty points above 1000.,UPDATE
+369,369,Delete the framework.,DELETE
+295,295,Set the archive status for documents older than five years.,UPDATE
+499,499,Erase records where the status is 'pending approval'.,DELETE_CONDITIONED_BASED
+92,92,Make an entry in the 'sessions' collection.,CREATE
+690,690,Insert this item into the database.,INSERT
+748,748,Insert this data into the records now.,INSERT
+474,474,Delete data where the 'priority' column is set to low.,DELETE_CONDITIONED_BASED
+523,523,Remove profiles without linked social accounts.,DELETE_CONDITIONED_BASED
+525,525,Erase items added to cart but not purchased in 3 months.,DELETE_CONDITIONED_BASED
+37,37,Create a new user profile for 'manager'.,CREATE
+643,643,DISPLAY products that are available for international shipping.,READ_CONDITION_BASED_DATA
+480,480,Remove inactive members from the mailing list.,DELETE_CONDITIONED_BASED
+53,53,Build an API endpoint named 'post-feedback'.,CREATE
+708,708,Put this record in the database.,INSERT
+415,415,Delete the test case.,DELETE
+746,746,Please insert this item into the data structure.,INSERT
+268,268,Adjust the deadline for projects nearing completion.,UPDATE
+777,777,Insert this record into the data structure now.,INSERT
+588,588,LIST all customers whose membership is expiring within 3 days.,READ_CONDITION_BASED_DATA
+265,265,Change the notification preferences for users opting for SMS updates.,UPDATE
+244,244,Modify the budget for campaigns with low conversion rates.,UPDATE
+577,577,SHOW all available products in the 'Home Appliances' category.,READ_CONDITION_BASED_DATA
+452,452,Erase all records with no phone number provided.,DELETE_CONDITIONED_BASED
+711,711,Insert this object into the storage.,INSERT
+189,189,Access all items in the data warehouse system.,READ
+119,119,Fetch all rows in the attendance sheet.,READ
+534,534,Delete job applications without resumes attached.,DELETE_CONDITIONED_BASED
+362,362,Delete the metadata.,DELETE
+537,537,Delete user access for accounts with unpaid subscriptions.,DELETE_CONDITIONED_BASED
+628,628,LIST users who have an account but haven’t made any purchases.,READ_CONDITION_BASED_DATA
+617,617,RETRIEVE customers whose age is between 18 and 30.,READ_CONDITION_BASED_DATA
+313,313,Set the confidentiality level for documents marked as sensitive.,UPDATE
+322,322,Delete the file.,DELETE
+145,145,Retrieve all entries from the activity log.,READ
+272,272,Modify the tags for products listed under incorrect categories.,UPDATE
+443,443,Remove data for users who have unsubscribed.,DELETE_CONDITIONED_BASED
+595,595,SELECT the students with a degree in 'Biology'.,READ_CONDITION_BASED_DATA
+538,538,Erase draft projects never submitted.,DELETE_CONDITIONED_BASED
+257,257,Change the metadata for files uploaded before 2023.,UPDATE
+687,687,Please add this to the records.,INSERT
+693,693,Insert this object into the dataset.,INSERT
+602,602,PULL details of students who have failed in any subject.,READ_CONDITION_BASED_DATA
+676,676,Insert this new row into the table.,INSERT
+530,530,Remove tickets that have been closed for over a year.,DELETE_CONDITIONED_BASED
+199,199,Get the full record of all stored campaigns.,READ
+121,121,Read every document from the feedback collection.,READ
+456,456,Delete expired coupons from the database.,DELETE_CONDITIONED_BASED
+579,579,SELECT the students who scored less than 50 in their final exam.,READ_CONDITION_BASED_DATA
+10,10,Create a collection named 'rahul'.,CREATE
+481,481,Delete unused tags from the database.,DELETE_CONDITIONED_BASED
+506,506,Erase customer preferences that have not been updated.,DELETE_CONDITIONED_BASED
+371,371,Erase the data table.,DELETE
+7,7,Start a database with the name 'products_db'.,CREATE
+461,461,Erase all events scheduled for the past dates.,DELETE_CONDITIONED_BASED
+540,540,Delete backups older than 6 months.,DELETE_CONDITIONED_BASED
+256,256,Update the role for contributors with a performance score above 90.,UPDATE
+491,491,Delete customer orders that were never confirmed.,DELETE_CONDITIONED_BASED
+582,582,RETRIEVE customers who have made more than 5 purchases.,READ_CONDITION_BASED_DATA
+612,612,LOOK UP employees who work in the 'HR' department.,READ_CONDITION_BASED_DATA
+389,389,Delete the hash table.,DELETE
+482,482,Erase attendance records of students marked as 'withdrawn'.,DELETE_CONDITIONED_BASED
+326,326,Delete the column.,DELETE
+505,505,Delete reviews submitted by bots.,DELETE_CONDITIONED_BASED
+767,767,Please insert this entry into the records.,INSERT
+712,712,Add this new value to the table.,INSERT
+96,96,Create a new schema for the 'products' database.,CREATE
+90,90,Create a new log entry in the 'transactions' collection.,CREATE
+180,180,Read the complete file of customer profiles.,READ
+221,221,Increase the inventory count for items with stock below 20.,UPDATE
+328,328,Delete the backup.,DELETE
+76,76,Create a container named 'backend'.,CREATE
+54,54,Set up a route for 'upload-file'.,CREATE
+787,787,Add this data to the database right now.,INSERT
+560,560,SHOW the names of employees who are on leave today.,READ_CONDITION_BASED_DATA
+641,641,RETRIEVE products with a price greater than $50.,READ_CONDITION_BASED_DATA
+230,230,Modify the payment status for invoices generated last month.,UPDATE
+601,601,SHOW all users who completed their profile setup.,READ_CONDITION_BASED_DATA
+479,479,Delete rows where the timestamp is older than a year.,DELETE_CONDITIONED_BASED
+646,646,PULL the details of users who live in 'Los Angeles'.,READ_CONDITION_BASED_DATA
+4,4,Generate a database titled 'student_records'.,CREATE
+515,515,Delete accounts flagged for suspicious activity.,DELETE_CONDITIONED_BASED
+615,615,LIST products with a customer rating less than 3 stars.,READ_CONDITION_BASED_DATA
+241,241,Change the author name for books published under pen names.,UPDATE
+352,352,Delete the widget.,DELETE
+610,610,PULL the list of students with an 'A+' grade in final exams.,READ_CONDITION_BASED_DATA
+629,629,DISPLAY the top-rated products in the store.,READ_CONDITION_BASED_DATA
+494,494,Remove employees whose contract has already ended.,DELETE_CONDITIONED_BASED
+366,366,Delete the API endpoint.,DELETE
+630,630,RETRIEVE records of students attending summer classes.,READ_CONDITION_BASED_DATA
+80,80,Initialize a container called 'db_container'.,CREATE
+263,263,Update the department name for employees under new management.,UPDATE
+46,46,Make a record in the table 'feedbacks'.,CREATE
+270,270,Update the comments for tickets resolved within SLA.,UPDATE
+645,645,SHOW all orders made with a discount code.,READ_CONDITION_BASED_DATA
+274,274,Update the author bio for writers publishing under aliases.,UPDATE
+178,178,Get the full dataset of tickets from the system.,READ
+368,368,Remove the environment configuration.,DELETE
+372,372,Delete the object from memory.,DELETE
+240,240,Adjust the grades of students who submitted re-evaluations.,UPDATE
+384,384,Remove the foreign key constraint.,DELETE
+632,632,SELECT employees who have been promoted this year.,READ_CONDITION_BASED_DATA
+228,228,Adjust the working hours for employees assigned to night shifts.,UPDATE
+325,325,Delete the row.,DELETE
+768,768,Insert this value into the system now.,INSERT
+86,86,Create a document in the 'reports' collection.,CREATE
+146,146,Fetch all stored configurations in the system.,READ
+572,572,FETCH the books where the author is 'J.K. Rowling'.,READ_CONDITION_BASED_DATA
+30,30,Create a user account named 'admin'.,CREATE
+511,511,Remove records where the subscription tier is undefined.,DELETE_CONDITIONED_BASED
+226,226,Change the membership tier for users spending over $500.,UPDATE
+23,23,Add a new file called 'app.js'.,CREATE
+87,87,Add a record in 'activity_logs' collection.,CREATE
+171,171,Fetch every record from the projects list.,READ
+290,290,Change the labels for services with enhanced features.,UPDATE
+663,663,RETRIEVE products in 'Beauty' category with more than 50 reviews.,READ_CONDITION_BASED_DATA
+117,117,Access all stored information about transactions.,READ
+291,291,Update the timestamps for logs with timezone discrepancies.,UPDATE
+760,760,Please add this object into the records.,INSERT
+336,336,Delete the video file.,DELETE
+648,648,SELECT the records for customers who have been referred by another user.,READ_CONDITION_BASED_DATA
+664,664,SELECT all entries where the city is 'Berlin'.,READ_CONDITION_BASED_DATA
+173,173,Access all entries from the blog posts collection.,READ
+716,716,Place this object in the system.,INSERT
+245,245,Update the profile picture for users without one.,UPDATE
+429,429,Delete the partition.,DELETE
+365,365,Remove the trigger.,DELETE
+516,516,Erase test orders created for training purposes.,DELETE_CONDITIONED_BASED
+69,69,Generate a folder titled 'backups'.,CREATE
+565,565,SHOW the records with a completion status of 'pending'.,READ_CONDITION_BASED_DATA
+488,488,Delete transactions flagged for review and later dismissed.,DELETE_CONDITIONED_BASED
+669,669,SHOW all students who have completed their summer internship.,READ_CONDITION_BASED_DATA
+719,719,Add this new entry to the records.,INSERT
+154,154,Get every saved entry in the accounts list.,READ
+741,741,Insert this new entry into the storage.,INSERT
+620,620,LIST students who have opted for online courses.,READ_CONDITION_BASED_DATA
+600,600,DISPLAY records for products that have a discount greater than 20%.,READ_CONDITION_BASED_DATA
+539,539,Remove events without organizers assigned.,DELETE_CONDITIONED_BASED
+219,219,Edit the email addresses of employees who have recently changed departments.,UPDATE
+535,535,Erase blog posts with no content or title.,DELETE_CONDITIONED_BASED
+498,498,Delete members whose profiles are incomplete.,DELETE_CONDITIONED_BASED
+652,652,FETCH the records for employees who have a 'contract' status.,READ_CONDITION_BASED_DATA
+682,682,Add this object to the list.,INSERT
+234,234,Adjust the interest rate for loans with a tenure exceeding 10 years.,UPDATE
+569,569,RETRIEVE all users who have made a purchase this week.,READ_CONDITION_BASED_DATA
+205,205,Retrieve the complete purchase history records.,READ
+301,301,Update the contact details for suppliers with contract renewals.,UPDATE
+82,82,Build a container for 'redis_cache'.,CREATE
+250,250,Modify the joining date for employees with incorrect records.,UPDATE
+60,60,Create a folder named 'assets'.,CREATE
+764,764,Insert this entry into the system now.,INSERT
+388,388,Delete the configuration setting.,DELETE
+774,774,Place this entry into the records now.,INSERT
+426,426,Delete the application.,DELETE
+183,183,Access the entire set of student profiles in the app.,READ
+14,14,Build a collection titled 'activity_logs'.,CREATE
+356,356,Delete the audit trail.,DELETE
+756,756,Add this value to the database table.,INSERT
+450,450,Remove orders that have a 'canceled' status.,DELETE_CONDITIONED_BASED
+781,781,Insert this object into the database right now.,INSERT
+403,403,Delete the debug logs.,DELETE
+434,434,Remove entries with an age below 18.,DELETE_CONDITIONED_BASED
+418,418,Delete the cloud bucket.,DELETE
+464,464,Erase any documents where the 'approved' field is false.,DELETE_CONDITIONED_BASED
+110,110,Fetch every record from the sales report.,READ
+200,200,Retrieve every item in the e-commerce inventory.,READ
+703,703,Add this value to the table.,INSERT
+391,391,Delete the asset file.,DELETE
+580,580,FETCH the records where age is between 18 and 25.,READ_CONDITION_BASED_DATA
+36,36,Initialize a user called 'team_lead'.,CREATE
+451,451,Delete the messages marked as 'spam'.,DELETE_CONDITIONED_BASED
+157,157,Retrieve every single record from the asset logs.,READ
+48,48,Add data into the 'order_items' table.,CREATE
+578,578,PULL the data of users who have verified their email.,READ_CONDITION_BASED_DATA
+43,43,Generate a record in the table 'sales_data'.,CREATE
+239,239,Update the description for items with missing details in the catalog.,UPDATE
+533,533,Remove vendors with no active products listed.,DELETE_CONDITIONED_BASED
+25,25,Set up a new file named 'script.js'.,CREATE
+190,190,Get every record saved in the employee benefits file.,READ
+302,302,Set the discount rates for members with exclusive codes.,UPDATE
+280,280,Change the ratings for apps with recent bug fixes.,UPDATE
+414,414,Delete the webhook.,DELETE
+247,247,Change the estimated delivery date for delayed shipments.,UPDATE
+67,67,Add a new folder named 'styles'.,CREATE
+785,785,Put this record into the system now.,INSERT
+101,101,Make a schema for the 'order_items' table.,CREATE
+246,246,Adjust the schedules for employees working on public holidays.,UPDATE
+763,763,Add this object into the dataset.,INSERT
+353,353,Delete the admin panel.,DELETE
+375,375,Delete the runtime file.,DELETE
+604,604,RETRIEVE all products that are on sale.,READ_CONDITION_BASED_DATA
+298,298,Change the instructions for assignments submitted after deadlines.,UPDATE
+220,220,Modify the discount percentage for customers who made more than 10 purchases.,UPDATE
+225,225,Update the status of complaints resolved within 48 hours.,UPDATE
+431,431,Remove the pod.,DELETE
+358,358,Delete the module.,DELETE
+28,28,Start a file named 'example.txt'.,CREATE
+338,338,Delete the project folder.,DELETE
+605,605,LIST customers who have purchased a specific product.,READ_CONDITION_BASED_DATA
+24,24,Initialize a file titled 'styles.css'.,CREATE
+633,633,LOOK FOR users who have completed 80% or more of their profile.,READ_CONDITION_BASED_DATA
+135,135,Retrieve every entry from the reports collection.,READ
+185,185,Fetch all records in the incident report database.,READ
+293,293,Adjust the benchmarks for KPIs below industry standards.,UPDATE
+419,419,Delete the pipeline.,DELETE
+699,699,Add this object into the data storage.,INSERT
+138,138,Get all the rows in the accounts table.,READ
+586,586,RETRIEVE orders where the payment status is 'completed'.,READ_CONDITION_BASED_DATA
+77,77,Set up a Docker container called 'api_service'.,CREATE
+182,182,Fetch all rows in the employee management system.,READ
+172,172,Retrieve all stored emails in the communications folder.,READ
+223,223,Change the location of events scheduled for the weekend.,UPDATE
+596,596,FETCH orders that are still in 'processing' status.,READ_CONDITION_BASED_DATA
+468,468,Delete the data of accounts created as test users.,DELETE_CONDITIONED_BASED
+786,786,Insert this new data into the records.,INSERT
+636,636,RETRIEVE orders with a status of 'delivered'.,READ_CONDITION_BASED_DATA
+296,296,Update the coaching staff for teams performing poorly.,UPDATE
+19,19,Set up a collection called 'comments'.,CREATE
+91,91,Add a document to the 'orders' collection.,CREATE
+386,386,Delete the credentials file.,DELETE
+603,603,FETCH orders with a total value less than $50.,READ_CONDITION_BASED_DATA
+311,311,Adjust the quotas for resources exceeding predefined limits.,UPDATE
+761,761,Insert this information into the table.,INSERT
+559,559,DISPLAY users who signed up last week.,READ_CONDITION_BASED_DATA
+131,131,Retrieve every record from the purchase history.,READ
+323,323,Delete the user account.,DELETE
+423,423,Delete the image tag.,DELETE
+31,31,Set up a user profile for 'john_doe'.,CREATE
+393,393,Erase the temporary logs.,DELETE
+63,63,Make a folder named 'scripts'.,CREATE
+717,717,Put this entry into the storage.,INSERT
+160,160,Read the complete dataset stored in the users file.,READ
+545,545,FETCH the data of individuals who have a salary greater than $5000.,READ_CONDITION_BASED_DATA
+276,276,Adjust the contract terms for clients renewing subscriptions.,UPDATE
+376,376,Delete the node modules.,DELETE
+324,324,Delete the dataset.,DELETE
+453,453,Remove posts that have less than 10 likes.,DELETE_CONDITIONED_BASED
+496,496,Erase all log entries generated before a specified date.,DELETE_CONDITIONED_BASED
+514,514,Remove outdated promotions from the database.,DELETE_CONDITIONED_BASED
+625,625,RETRIEVE customers with a high lifetime value.,READ_CONDITION_BASED_DATA
+558,558,LIST products that are out of stock.,READ_CONDITION_BASED_DATA
+78,78,Add a container titled 'frontend_app'.,CREATE
+3,3,Create a new database with the name 'my_data'.,CREATE
+159,159,Get every document from the feedback repository.,READ
+556,556,PULL the details of employees who work in the IT department.,READ_CONDITION_BASED_DATA
+747,747,Place this record into the list.,INSERT
+383,383,Delete the instance.,DELETE
+114,114,Read all the files from the archive.,READ
+713,713,Insert this data into the records.,INSERT
+647,647,RETRIEVE customers who have returned a product in the last 3 months.,READ_CONDITION_BASED_DATA
+65,65,Set up a folder with the name 'templates'.,CREATE
+108,108,Read all entries in the orders table.,READ
+21,21,Generate a file titled 'main.py'.,CREATE
+688,688,Insert this entry into the data structure.,INSERT
+476,476,Remove payment records where the amount is zero.,DELETE_CONDITIONED_BASED
+98,98,Define a new schema for 'user_profiles'.,CREATE
+72,72,Add a new virtual machine called 'dev_env'.,CREATE
+321,321,Erase the record.,DELETE
+320,320,Delete the collection.,DELETE
+308,308,Update the skills section for profiles undergoing revisions.,UPDATE
+597,597,RETRIEVE all employees in the 'Sales' department.,READ_CONDITION_BASED_DATA
+286,286,Change the user privileges for administrators granted new roles.,UPDATE
+696,696,Insert this new row into the records.,INSERT
+254,254,Edit the license expiry date for users who renewed recently.,UPDATE
+701,701,Place this array into the data structure.,INSERT
+594,594,PULL the entries where age is greater than 40.,READ_CONDITION_BASED_DATA
+271,271,Edit the invoice date for bills generated incorrectly.,UPDATE
+681,681,Please insert this data into the system.,INSERT
+473,473,Remove items marked as 'out of stock'.,DELETE_CONDITIONED_BASED
+186,186,Access every entry stored in the work schedule table.,READ
+495,495,Delete entries where the age column is blank.,DELETE_CONDITIONED_BASED
+130,130,Read the entire dataset in the customers file.,READ
+73,73,Generate a VM titled 'database_server'.,CREATE
+734,734,Place this entry into the storage now.,INSERT
+675,675,Can you insert this array into the database?,INSERT
+29,29,Establish a new file titled 'report.docx'.,CREATE
+184,184,Read every stored event from the event logs.,READ
+478,478,Erase users whose subscription has been canceled.,DELETE_CONDITIONED_BASED
+195,195,Fetch every row from the subscriptions file.,READ
+331,331,Delete the repository.,DELETE
+683,683,Put this entry into the database.,INSERT
+44,44,Insert a new row into 'user_info'.,CREATE
+656,656,SHOW orders that are marked as 'urgent'.,READ_CONDITION_BASED_DATA
+458,458,Delete rows where the 'deleted' column is true.,DELETE_CONDITIONED_BASED
+396,396,Delete the saved template.,DELETE
+493,493,Delete rows with duplicate IDs.,DELETE_CONDITIONED_BASED
+404,404,Erase the XML file.,DELETE
+139,139,Read all the saved notes in the archive.,READ
+111,111,Read all information stored in the customers list.,READ
+305,305,Edit the descriptions for files missing critical metadata.,UPDATE
+445,445,Erase transactions where the amount is less than 100.,DELETE_CONDITIONED_BASED
+327,327,Remove the log files.,DELETE
+659,659,PULL records of employees in 'Marketing' who work full-time.,READ_CONDITION_BASED_DATA
+575,575,LOOK UP customers whose order value exceeds $1000.,READ_CONDITION_BASED_DATA
+277,277,Edit the rankings for teams qualifying for the finals.,UPDATE
+411,411,Remove the subscription plan.,DELETE
+660,660,LOOK UP all the employees who have a 'Bachelor's' degree.,READ_CONDITION_BASED_DATA
+163,163,Fetch the full record of entries in the membership database.,READ
+439,439,Delete items with a quantity less than 10.,DELETE_CONDITIONED_BASED
+333,333,Delete the session data.,DELETE
+561,561,RETRIEVE all orders placed in the last 24 hours.,READ_CONDITION_BASED_DATA
+169,169,Access the full records of students in the database.,READ
+413,413,Erase the authentication token.,DELETE
+258,258,Modify the user preferences for those selecting dark mode.,UPDATE
+55,55,Create a new API endpoint called 'new-order'.,CREATE
+483,483,Remove contacts without email addresses.,DELETE_CONDITIONED_BASED
+33,33,Generate a user account titled 'superadmin'.,CREATE
+638,638,PULL the details of users who have made multiple purchases in the last month.,READ_CONDITION_BASED_DATA
+471,471,Delete the entries of people who opted out of marketing.,DELETE_CONDITIONED_BASED
+502,502,Erase old chat logs from inactive conversations.,DELETE_CONDITIONED_BASED
+437,437,Delete accounts that have not been active for over a year.,DELETE_CONDITIONED_BASED
+454,454,Delete files larger than 1GB from the storage.,DELETE_CONDITIONED_BASED
+528,528,Delete all session records older than 90 days.,DELETE_CONDITIONED_BASED
+79,79,Generate a container with the name 'worker_process'.,CREATE
+642,642,LOOK FOR customers who have not updated their profile in 6 months.,READ_CONDITION_BASED_DATA
+206,206,Fetch every stored contact in the address book.,READ
+346,346,Erase the binary file.,DELETE
+752,752,Add this data into the system right now.,INSERT
+402,402,Delete the report.,DELETE
+140,140,Retrieve all the stored messages in the database.,READ
+203,203,Read the full list of employees in the organization.,READ
+566,566,SELECT all students with a GPA higher than 3.5.,READ_CONDITION_BASED_DATA
+100,100,Generate a table schema in 'analytics'.,CREATE
+211,211,Change the status of orders where the total price exceeds $1000.,UPDATE
+432,432,Delete the node.,DELETE
+770,770,Insert this row into the collection now.,INSERT
+6,6,Initialize a database named 'employees'.,CREATE
+512,512,Delete services that are no longer offered.,DELETE_CONDITIONED_BASED
+334,334,Delete the configuration file.,DELETE
+611,611,SELECT orders made on 'Black Friday'.,READ_CONDITION_BASED_DATA
+521,521,Delete team members whose roles are unassigned.,DELETE_CONDITIONED_BASED
+89,89,Generate a record for the 'feedbacks' collection.,CREATE
+428,428,Delete the lambda function.,DELETE
+408,408,Delete the entity.,DELETE
+278,278,Modify the designation for employees promoted this year.,UPDATE
+668,668,FETCH customers with a '5-star' rating for their reviews.,READ_CONDITION_BASED_DATA
+166,166,Fetch all stored actions from the activity database.,READ
+392,392,Delete the notification.,DELETE
+519,519,Erase the records of customers with failed payments.,DELETE_CONDITIONED_BASED
+315,315,Modify the code for transactions flagged as anomalies.,UPDATE
+303,303,Change the serial numbers for equipment undergoing repairs.,UPDATE
+179,179,Fetch every stored record of orders from the server.,READ
+583,583,DISPLAY products that have been rated 3 stars or below.,READ_CONDITION_BASED_DATA
+543,543,Delete companies with no verified email or phone number.,DELETE_CONDITIONED_BASED
+563,563,DISPLAY the data for products with a rating above 4 stars.,READ_CONDITION_BASED_DATA
+740,740,Add this to the list in the database.,INSERT
+134,134,Get the full list of records from the library system.,READ
+339,339,Remove the installation files.,DELETE
+218,218,Update the prices of products that are currently on sale.,UPDATE
+591,591,LOOK FOR orders placed by customers in 'London'.,READ_CONDITION_BASED_DATA
+465,465,Remove orders where the total amount is 0.,DELETE_CONDITIONED_BASED
+635,635,SHOW products that are in the 'Electronics' category and have a rating above 4.,READ_CONDITION_BASED_DATA
+489,489,Erase records of unverified users.,DELETE_CONDITIONED_BASED
+788,788,Place this object into the collection now.,INSERT
+164,164,Get every file saved in the archived records.,READ
+345,345,Delete the primary key entry.,DELETE
+107,107,Retrieve all records from the database.,READ
+670,670,RETRIEVE orders where the shipping method is 'overnight'.,READ_CONDITION_BASED_DATA
+776,776,Add this value to the database immediately.,INSERT
+109,109,Get all documents from the employee dataset.,READ
+589,589,FETCH the records of users who have a 'gold' membership.,READ_CONDITION_BASED_DATA
+377,377,Erase the linked file.,DELETE
+378,378,Delete the sandbox environment.,DELETE
+424,424,Remove the SSH key.,DELETE
+16,16,Initialize a collection called 'feedbacks'.,CREATE
+726,726,Place this object in the database.,INSERT
+360,360,Delete the shortcut.,DELETE
+262,262,Adjust the prices of flights scheduled for the holiday season.,UPDATE
+576,576,EXTRACT the records of employees with the title 'Manager'.,READ_CONDITION_BASED_DATA
+312,312,Update the remarks for employees with outstanding contributions.,UPDATE
+147,147,Access all rows in the database of memberships.,READ
+349,349,Delete the HTML file.,DELETE
+132,132,Fetch all documents in the task management system.,READ
+689,689,Place this value into the system.,INSERT
+609,609,SHOW products with a warranty period longer than 2 years.,READ_CONDITION_BASED_DATA
+204,204,Access every profile in the user registration database.,READ
+463,463,Delete profiles without a profile picture.,DELETE_CONDITIONED_BASED
+749,749,Add this object into the data table.,INSERT
+191,191,Fetch the full list of entries in the customer orders.,READ
+470,470,Remove outdated job postings with expired deadlines.,DELETE_CONDITIONED_BASED
+435,435,Delete all users whose age is under 18.,DELETE_CONDITIONED_BASED
+722,722,Insert this object into the main table.,INSERT
+438,438,Remove all rows where the status is marked as 'inactive'.,DELETE_CONDITIONED_BASED
+56,56,Add a route named 'generate-report'.,CREATE
+649,649,LOOK UP products with more than 100 reviews.,READ_CONDITION_BASED_DATA
+679,679,Please add this value to the data structure.,INSERT
+619,619,PULL the records of users who joined in the last quarter.,READ_CONDITION_BASED_DATA
+161,161,Access every log in the system monitoring database.,READ
+103,103,Define a new schema for 'activity_data'.,CREATE
+759,759,Put this item into the database.,INSERT
+503,503,Delete employees who have resigned within the past month.,DELETE_CONDITIONED_BASED
+9,9,Add a database called 'inventory'.,CREATE
+152,152,Access all stored forms in the submissions collection.,READ
+373,373,Remove the service account.,DELETE
+706,706,Add this information to the list.,INSERT
+440,440,Remove records where the balance is negative.,DELETE_CONDITIONED_BASED
+348,348,Remove the exported data.,DELETE
+379,379,Delete the integration.,DELETE
+700,700,Insert this new record into the collection.,INSERT
+81,81,Make a Docker image named 'nginx_proxy'.,CREATE
+122,122,Get all stored records about employees.,READ
+751,751,Place this entry into the main table.,INSERT
+176,176,Retrieve every row of data in the billing table.,READ
+694,694,Add this entry into the table.,INSERT
+782,782,Place this value into the data table.,INSERT
+607,607,LOOK FOR users who have made a purchase in the last 7 days.,READ_CONDITION_BASED_DATA
+253,253,Update the team assignments for employees who switched departments.,UPDATE
+789,789,Insert this new entry into the table now.,INSERT
+504,504,Remove transactions where the payment method is invalid.,DELETE_CONDITIONED_BASED
+585,585,LOOK UP students who are currently enrolled in 'Math 101'.,READ_CONDITION_BASED_DATA
+316,316,Delete the database.,DELETE
+407,407,Remove the test data.,DELETE
+355,355,Delete the endpoint.,DELETE
+115,115,Fetch the entire dataset of students.,READ
+573,573,DISPLAY users who have logged in today.,READ_CONDITION_BASED_DATA
+59,59,Initialize a new endpoint titled 'submit-form'.,CREATE
+524,524,Delete payments that were declined or reversed.,DELETE_CONDITIONED_BASED
+165,165,Access all documents in the contracts folder.,READ
+155,155,Fetch all rows from the order history database.,READ
+758,758,Insert this data into the collection now.,INSERT
+417,417,Delete the database connection.,DELETE
+780,780,Add this entry to the collection now.,INSERT
+674,674,Please insert this object into the table.,INSERT
+665,665,DISPLAY students who are participating in internships this semester.,READ_CONDITION_BASED_DATA
+655,655,LIST students with a degree in 'Computer Science'.,READ_CONDITION_BASED_DATA
+778,778,Put this object into the list now.,INSERT
+721,721,Add this data into the storage.,INSERT
+344,344,Remove the index file.,DELETE
+367,367,Delete the microservice.,DELETE
+501,501,Delete campaigns with a start date in the future.,DELETE_CONDITIONED_BASED
+467,467,Remove invoices where the due date has passed.,DELETE_CONDITIONED_BASED
+74,74,Initialize a virtual machine named 'web_server'.,CREATE
+653,653,RETRIEVE the names of all managers in the company.,READ_CONDITION_BASED_DATA
+697,697,Can you insert this item into the structure?,INSERT
+587,587,SHOW all users who have not made any purchases yet.,READ_CONDITION_BASED_DATA
+757,757,Place this entry into the dataset.,INSERT
+500,500,Remove products not linked to any category.,DELETE_CONDITIONED_BASED
+354,354,Erase the script.,DELETE
+743,743,Add this value into the records.,INSERT
+279,279,Update the labels for products misclassified in the database.,UPDATE
+436,436,Erase data for employees with salaries below 5000.,DELETE_CONDITIONED_BASED
+120,120,Retrieve all the saved data in the analytics table.,READ
+329,329,Erase the database schema.,DELETE
+40,40,Create a record in the table 'students'.,CREATE
+486,486,Delete old reservations past their end date.,DELETE_CONDITIONED_BASED
+553,553,RETRIEVE orders where the total amount is greater than $200.,READ_CONDITION_BASED_DATA
+273,273,Set the active status to true for accounts verified recently.,UPDATE
+136,136,Access all stored user profiles in the app.,READ
+22,22,Build a file named 'config.yaml'.,CREATE
+196,196,Retrieve all entries stored in the event attendance list.,READ
+487,487,Remove leads marked as unqualified.,DELETE_CONDITIONED_BASED
+466,466,Delete notifications that have already been read.,DELETE_CONDITIONED_BASED
+398,398,Delete the deployment script.,DELETE
+380,380,Remove the console output.,DELETE
+20,20,Create a file named 'index.html'.,CREATE
+529,529,Erase transactions with duplicate reference numbers.,DELETE_CONDITIONED_BASED
+222,222,Update the due date for loans that were approved last month.,UPDATE
+158,158,Fetch all the stored sessions in the active users table.,READ
+715,715,Insert this into the data structure now.,INSERT
+738,738,Insert this data to the system.,INSERT
+672,672,INSERT this record into the database.,INSERT
+744,744,Insert this object into the database now.,INSERT
+207,207,Access the complete database of transactions.,READ
+531,531,Delete students with grades not recorded.,DELETE_CONDITIONED_BASED
+235,235,Change the delivery preferences for users who opted for express shipping.,UPDATE
+555,555,SELECT customers with a subscription expiring within a month.,READ_CONDITION_BASED_DATA
+671,671,SELECT the entries where the user is under 18 years old.,READ_CONDITION_BASED_DATA
+773,773,Insert this new object into the data storage.,INSERT
+568,568,LOOK FOR employees whose performance score is above 80.,READ_CONDITION_BASED_DATA
+350,350,Delete the stylesheet.,DELETE
+106,106,Fetch all data from the users collection.,READ
+598,598,LOOK UP records where the user’s email address contains 'gmail'.,READ_CONDITION_BASED_DATA
+739,739,Place this object into the data storage.,INSERT
+294,294,Modify the security clearance for employees accessing sensitive data.,UPDATE
+718,718,Insert this value into the data table.,INSERT
+644,644,FETCH records of users who have verified their phone number.,READ_CONDITION_BASED_DATA
+755,755,Insert this array into the table.,INSERT
+725,725,Add this entry into the storage.,INSERT
+430,430,Delete the cluster.,DELETE
+634,634,FETCH records of all customers who have subscribed to the newsletter.,READ_CONDITION_BASED_DATA
+510,510,Delete items with mismatched prices.,DELETE_CONDITIONED_BASED
+249,249,Update the ratings for products reviewed positively after returns.,UPDATE
+83,83,Add a container titled 'node_app'.,CREATE
+729,729,Add this array to the records.,INSERT
+32,32,Add a new user called 'guest_user'.,CREATE
+359,359,Erase the documentation.,DELETE
+70,70,Create a virtual machine named 'test_vm'.,CREATE
+606,606,SELECT employees with a performance rating higher than 90.,READ_CONDITION_BASED_DATA
+287,287,Update the goals for projects transitioning to new phases.,UPDATE
+112,112,Retrieve all the rows in the product catalog.,READ
+433,433,Delete the records where age is less than 18.,DELETE_CONDITIONED_BASED
+317,317,Delete the user data.,DELETE
+193,193,Access all the stored cases from the court files.,READ
+385,385,Delete the script execution logs.,DELETE
+156,156,Access the entire dataset of the employees system.,READ
+84,84,Create a new container called 'data_processor'.,CREATE
+410,410,Delete the cron job.,DELETE
+387,387,Erase the build directory.,DELETE
+732,732,Insert this record into the table right away.,INSERT
+497,497,Remove all files without an associated user.,DELETE_CONDITIONED_BASED
+260,260,Update the publisher details for books with a change in ownership.,UPDATE
+5,5,Make a database called 'sales'.,CREATE
+405,405,Delete the JSON object.,DELETE
+567,567,PULL the records where the product category is 'electronics'.,READ_CONDITION_BASED_DATA
+775,775,Insert this item into the system right now.,INSERT
+281,281,Edit the categories for articles with outdated topics.,UPDATE
+61,61,Add a directory called 'resources'.,CREATE
+8,8,Establish a database titled 'reports'.,CREATE
+237,237,Modify the colors for products listed in the summer collection.,UPDATE
+341,341,Delete the form submission.,DELETE
+710,710,Place this item into the records.,INSERT
+47,47,Create an entry for 'customer_details'.,CREATE
+790,790,Add this object into the records now.,INSERT
+548,548,READ all products with a price less than $100.,READ_CONDITION_BASED_DATA
+123,123,Retrieve all entries from the project database.,READ
+692,692,Add this data to the records.,INSERT
+455,455,Remove data for users who haven't logged in for 6 months.,DELETE_CONDITIONED_BASED
+151,151,Fetch every record from the purchase orders dataset.,READ
+771,771,Place this object into the data structure.,INSERT
+477,477,Delete customers with invalid phone numbers.,DELETE_CONDITIONED_BASED
+623,623,SELECT entries where the discount is less than 10%.,READ_CONDITION_BASED_DATA
+75,75,Make a VM instance titled 'qa_env'.,CREATE
+167,167,Read all stored tasks from the management board.,READ
+129,129,Access all data in the sessions table.,READ
+99,99,Add a schema for the 'transaction_logs'.,CREATE
+685,685,Add the following object to the database.,INSERT
+772,772,Add this data into the table.,INSERT
+216,216,Set the delivery status to 'shipped' for orders placed last week.,UPDATE
+422,422,Delete the docker container.,DELETE
+639,639,FETCH users who have given feedback on their last purchase.,READ_CONDITION_BASED_DATA
+517,517,Remove survey responses that are incomplete.,DELETE_CONDITIONED_BASED
+564,564,FETCH all entries where the age is less than 21.,READ_CONDITION_BASED_DATA
+118,118,Get the complete list of entries from the logs.,READ
+737,737,Please add this record to the table.,INSERT
+38,38,Add a user account named 'tester'.,CREATE
+754,754,Put this entry into the data storage.,INSERT
+231,231,Change the shipping method for orders weighing over 10kg.,UPDATE
+133,133,Read all items stored in the catalog.,READ
+343,343,Delete the function from the codebase.,DELETE
+475,475,Erase entries with incorrect or missing addresses.,DELETE_CONDITIONED_BASED
+224,224,Modify the grades for students who failed the mid-term exam.,UPDATE
+766,766,Add this object to the database now.,INSERT
+1,1,Set up a new database called 'parmar'.,CREATE
+651,651,SHOW students who have enrolled in more than 5 courses.,READ_CONDITION_BASED_DATA
+581,581,LOOK FOR entries with an expiry date in the next week.,READ_CONDITION_BASED_DATA
+731,731,Place this information into the system now.,INSERT
+215,215,Update the phone numbers for users with invalid formats.,UPDATE
+395,395,Delete the network configuration.,DELETE
+462,462,Remove customers whose accounts are flagged as fraudulent.,DELETE_CONDITIONED_BASED
+399,399,Delete the provisioned resource.,DELETE
+62,62,Generate a new folder titled 'images'.,CREATE
+363,363,Delete the stored procedure.,DELETE
+704,704,Insert this object into the database table.,INSERT
+188,188,Fetch all stored details in the users table.,READ
+143,143,Read every row in the marketing database.,READ
+551,551,SHOW all books published after 2015.,READ_CONDITION_BASED_DATA
+542,542,Remove inventory records with mismatched counts.,DELETE_CONDITIONED_BASED
+208,208,Read every saved log from the system database.,READ
+779,779,Insert this array into the system.,INSERT
+547,547,LOOK UP all employees who joined after 2020.,READ_CONDITION_BASED_DATA
+769,769,Add this item to the data storage.,INSERT
+370,370,Delete the logs directory.,DELETE
+124,124,Fetch every row of the users dataset.,READ
+618,618,SHOW all users who have purchased more than 3 items this month.,READ_CONDITION_BASED_DATA
+285,285,Set the pricing strategy for items with seasonal discounts.,UPDATE
+460,460,Delete comments containing inappropriate content.,DELETE_CONDITIONED_BASED
+527,527,Remove expired API tokens from the system.,DELETE_CONDITIONED_BASED
+666,666,PULL records of customers with an order value above $100.,READ_CONDITION_BASED_DATA
+444,444,Delete records of students who failed in all subjects.,DELETE_CONDITIONED_BASED
+252,252,Change the stock availability for items restocked recently.,UPDATE
+661,661,FETCH the records where the order was placed before '2024'.,READ_CONDITION_BASED_DATA
+546,546,SHOW the entries where the status is active.,READ_CONDITION_BASED_DATA
+593,593,SHOW the data for users who have been inactive for a month.,READ_CONDITION_BASED_DATA
+416,416,Remove the permissions file.,DELETE
+243,243,Edit the preferences for users who unsubscribed from marketing emails.,UPDATE
+427,427,Erase the resource group.,DELETE
+459,459,Remove reviews with a rating of less than 3.,DELETE_CONDITIONED_BASED
+275,275,Change the configuration for systems upgraded to the latest version.,UPDATE
+509,509,Erase details of employees terminated for misconduct.,DELETE_CONDITIONED_BASED
+105,105,Build a schema for the 'audit_logs'.,CREATE
+318,318,Delete the entire table.,DELETE
+332,332,Remove the cache.,DELETE
+282,282,Adjust the voting rights for members attending special meetings.,UPDATE
+733,733,Add this new data into the database.,INSERT
+58,58,Set up an API route for 'add-comment'.,CREATE
+248,248,Edit the tax rate for orders placed in regions with updated policies.,UPDATE
+283,283,Update the profiles for customers switching to premium plans.,UPDATE
+390,390,Remove the primary database.,DELETE
+709,709,Insert this into the collection.,INSERT
+508,508,Remove records of banned accounts.,DELETE_CONDITIONED_BASED
+673,673,Add this entry into the system.,INSERT
+608,608,RETRIEVE records of all users from 'Australia'.,READ_CONDITION_BASED_DATA
+442,442,Erase entries with null email addresses.,DELETE_CONDITIONED_BASED
+714,714,Can you add this entry into the system?,INSERT
+446,446,Remove all files uploaded before January 2022.,DELETE_CONDITIONED_BASED
+93,93,Insert a log into the 'audit_logs' collection.,CREATE
+128,128,Fetch the full list of entries in the records database.,READ
+68,68,Make a directory called 'media'.,CREATE
+621,621,FETCH products that have been in the 'Featured' section.,READ_CONDITION_BASED_DATA
+590,590,DISPLAY books that have been rated 5 stars.,READ_CONDITION_BASED_DATA
+212,212,Update the address of customers living in New York to the new format.,UPDATE
+570,570,SHOW all the students enrolled in the Computer Science course.,READ_CONDITION_BASED_DATA
+102,102,Create a model schema for 'feedback'.,CREATE
+259,259,Set the assignment status to completed for students meeting all criteria.,UPDATE
+35,35,Make a new user named 'developer'.,CREATE
+88,88,Insert a document into the 'users' collection.,CREATE
+18,18,Add a new collection titled 'items'.,CREATE
+351,351,Remove the JavaScript file.,DELETE
+50,50,Create an API endpoint called 'register'.,CREATE
+622,622,DISPLAY all employees who work remotely.,READ_CONDITION_BASED_DATA
+309,309,Change the domain for emails bouncing due to invalid addresses.,UPDATE
+762,762,Place this value into the storage now.,INSERT
+667,667,LOOK UP users who have participated in surveys in the last 6 months.,READ_CONDITION_BASED_DATA
+242,242,Update the permissions for admin accounts with recent security changes.,UPDATE
+650,650,LIST entries where the payment status is 'pending'.,READ_CONDITION_BASED_DATA
+532,532,Erase old audit logs from the system.,DELETE_CONDITIONED_BASED
+251,251,Set the review status to approved for content flagged erroneously.,UPDATE
+198,198,Fetch all files from the user archive.,READ
+113,113,Get all available data from the books collection.,READ
+409,409,Delete the job queue.,DELETE
+300,300,Adjust the columns for tables with duplicate entries.,UPDATE
+536,536,Remove flagged comments for violations.,DELETE_CONDITIONED_BASED
+104,104,Set up a schema for 'comments'.,CREATE
+284,284,Modify the coordinates for locations listed incorrectly on the map.,UPDATE
+678,678,Insert this object into the collection.,INSERT
+357,357,Remove the plugin.,DELETE
+637,637,LIST all students who have a scholarship.,READ_CONDITION_BASED_DATA
+297,297,Edit the configurations for servers exceeding usage thresholds.,UPDATE
+148,148,Read all information from the collection named reviews.,READ
+677,677,Add the following data to the database.,INSERT
+657,657,RETRIEVE all users with a verified email address.,READ_CONDITION_BASED_DATA
+730,730,Insert this entry into the collection.,INSERT
+177,177,Access all the entries in the donations file.,READ
+401,401,Remove the CDN cache.,DELETE
+210,210,Access the full history of entries in the user logs.,READ
+691,691,Put this object into the table.,INSERT
+214,214,Adjust the grade of students who scored less than 40 in the exam.,UPDATE
+484,484,Delete addresses that are marked invalid.,DELETE_CONDITIONED_BASED
+264,264,Modify the dimensions for packages exceeding weight limits.,UPDATE
+153,153,Read all the stored logs from the event tracker.,READ
+723,723,Put this value into the database.,INSERT
+421,421,Delete the instance group.,DELETE
+490,490,Remove feedback submitted anonymously.,DELETE_CONDITIONED_BASED
+49,49,Insert a new record in 'activity_logs'.,CREATE
+181,181,Retrieve every document from the helpdesk database.,READ
+640,640,SHOW orders where the shipping address is 'USA'.,READ_CONDITION_BASED_DATA
+168,168,Retrieve the entire list of files in the attachments folder.,READ
+116,116,Retrieve every item from the inventory table.,READ
+94,94,Generate a document in the 'comments' collection.,CREATE
+149,149,Get every stored file in the file storage system.,READ
+627,627,FETCH entries with a delivery status of 'shipped'.,READ_CONDITION_BASED_DATA
+457,457,Erase records where the field 'city' is empty.,DELETE_CONDITIONED_BASED
+406,406,Delete the HTML template.,DELETE
+420,420,Erase the session token.,DELETE
+144,144,Get the complete dataset of users from the system.,READ
+306,306,Adjust the weights for metrics with low contribution values.,UPDATE
+412,412,Delete the role.,DELETE
+13,13,Generate a collection called 'log_data'.,CREATE
+727,727,Add this object to the table now.,INSERT
+492,492,Erase all temporary data generated during testing.,DELETE_CONDITIONED_BASED
+11,11,Set up a collection titled 'users'.,CREATE
+269,269,Change the milestone targets for teams underperforming.,UPDATE
+233,233,Edit the phone numbers of customers with incomplete profiles.,UPDATE
+549,549,DISPLAY the users with membership level 'premium'.,READ_CONDITION_BASED_DATA
+310,310,Edit the timeline for events rescheduled due to weather.,UPDATE
+513,513,Erase products with zero stock and no sales.,DELETE_CONDITIONED_BASED
+34,34,Build a user profile with the name 'jane_doe'.,CREATE
+299,299,Modify the banners for advertisements showing outdated offers.,UPDATE
+599,599,LIST books published between 2010 and 2015.,READ_CONDITION_BASED_DATA
+364,364,Delete the views.,DELETE
+201,201,Access the entire dataset in the organization file.,READ
+397,397,Remove the row index.,DELETE
+686,686,Insert this into the main table.,INSERT
+175,175,Fetch the entire user activity history.,READ
+361,361,Remove the bookmark.,DELETE
+374,374,Delete the library.,DELETE
+202,202,Fetch all logs in the server monitoring tool.,READ
+342,342,Delete the API key.,DELETE
+39,39,Set up an account for 'qa_user'.,CREATE
+702,702,Can you insert this into the system now?,INSERT
+520,520,Remove all logs that exceed the storage limit.,DELETE_CONDITIONED_BASED
+289,289,Modify the test scores for students reappearing for exams.,UPDATE
+307,307,Modify the hierarchy for managers with multiple teams.,UPDATE
+232,232,Update the access level of users whose roles have been redefined.,UPDATE
+724,724,Insert this row into the records.,INSERT
+382,382,Delete the manifest file.,DELETE
+394,394,Remove the virtual machine.,DELETE
+71,71,Set up a VM instance titled 'app_server'.,CREATE
+448,448,Erase data for employees whose joining date is before 2015.,DELETE_CONDITIONED_BASED
+85,85,Set up a container for 'background_jobs'.,CREATE
+15,15,Make a new collection named 'sessions'.,CREATE
+236,236,Update the manager assigned to projects delayed by more than a month.,UPDATE
+142,142,Access every saved record from the system.,READ
+42,42,Add an entry in the table 'products'.,CREATE
+735,735,Put this object into the records.,INSERT
+27,27,Make a new file called 'data.json'.,CREATE
+64,64,Initialize a directory called 'docs'.,CREATE
+314,314,Change the names for projects approved by the council.,UPDATE
+209,209,Retrieve all rows of documents from the repository.,READ
+745,745,Add this array into the system.,INSERT
+584,584,PULL the details of all users who have an address in 'California'.,READ_CONDITION_BASED_DATA
+695,695,Place this information into the database.,INSERT
+574,574,RETRIEVE all events that are happening next month.,READ_CONDITION_BASED_DATA
+292,292,Edit the assets for portfolios exceeding profit margins.,UPDATE
+698,698,Please insert this new entry into the system.,INSERT
+707,707,Insert this new object into the system.,INSERT
+662,662,SHOW all users who completed their order within 1 hour.,READ_CONDITION_BASED_DATA
+684,684,Insert this new item into the collection.,INSERT
+41,41,Insert a record into the 'employees' table.,CREATE
+631,631,PULL details of customers who are waiting for a refund.,READ_CONDITION_BASED_DATA
+26,26,Create a file with the name 'README.md'.,CREATE
+626,626,SHOW orders placed in the last 48 hours.,READ_CONDITION_BASED_DATA
+720,720,Place this object into the list.,INSERT
+526,526,Delete notes without a title.,DELETE_CONDITIONED_BASED
+554,554,LOOK FOR transactions where the payment method is 'credit card'.,READ_CONDITION_BASED_DATA
+472,472,Erase transactions made by banned users.,DELETE_CONDITIONED_BASED
+425,425,Delete the bucket policy.,DELETE
+507,507,Delete orders without valid shipping addresses.,DELETE_CONDITIONED_BASED
+522,522,Erase user data marked as archived.,DELETE_CONDITIONED_BASED
+95,95,Create a data entry in the 'inventory' collection.,CREATE
+592,592,RETRIEVE records of employees with a tenure of over 10 years.,READ_CONDITION_BASED_DATA
+170,170,Get all rows from the sales performance table.,READ
+550,550,EXTRACT the details of students with grade A.,READ_CONDITION_BASED_DATA
+45,45,Add a new entry to the 'transactions' table.,CREATE
+485,485,Erase the history of users who requested account deletion.,DELETE_CONDITIONED_BASED
+127,127,Retrieve all saved files in the backups folder.,READ
+174,174,Read every stored document in the repository.,READ
+126,126,Get all the details from the user accounts.,READ
+57,57,Make an endpoint for 'save-data'.,CREATE
+447,447,Delete all entries where the 'verified' flag is false.,DELETE_CONDITIONED_BASED
+613,613,FETCH customers who have left reviews for products.,READ_CONDITION_BASED_DATA
+616,616,FETCH orders where the payment method is 'PayPal'.,READ_CONDITION_BASED_DATA
+658,658,SELECT customers who have purchased 'Smartphones' in the last month.,READ_CONDITION_BASED_DATA
+52,52,Generate a new endpoint for 'add-product'.,CREATE
+137,137,Fetch all stored events from the calendar database.,READ
+238,238,Set the account status to inactive for users not logged in for a year.,UPDATE
+736,736,Insert this value into the collection.,INSERT
+2,2,Build a database named 'test_db'.,CREATE
+213,213,Modify the salary for employees who have worked for more than 5 years.,UPDATE
+544,544,READ the records where age is greater than 30.,READ_CONDITION_BASED_DATA
+347,347,Delete the program logs.,DELETE
+288,288,Edit the bio for influencers collaborating on campaigns.,UPDATE
+266,266,Update the access time for members joining exclusive events.,UPDATE

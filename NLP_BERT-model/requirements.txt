@@ -1,0 +1,13 @@
+scikit-learn
+pandas
+numpy
+torch
+transformers
+datasets
+evaluate
+flask
+uvicorn
+google.generativeai
+flask_cors
+ipykernel
+accelerate>=0.26.0
