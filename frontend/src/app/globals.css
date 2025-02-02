@@ -22,20 +22,20 @@ body {
 
 body {
   --sb-track-color: #656565;
-  --sb-thumb-color: #292929;
+  --sb-thumb-color: linear-gradient(to bottom, #41d658, #1321c0);
   --sb-size: 11px;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: var(--sb-size);
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
   background: var(--sb-track-color);
   border-radius: 10px;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 10px;
 }
