@@ -38,7 +38,44 @@ Managing NoSQL databases like MongoDB can be complex, especially for small busin
 4. **Blockchain Ensures Security** – Smart contracts manage access, and changes are logged.
 5. **Revert System Available** – Users can reverse actions transparently when needed.
 
+## 🛠️ Installation Steps to Set Up DistilBERT Model
+
+### Step 1: Create a Conda or Python Environment
+We recommend using Conda. Use the following command to create an environment:
+```sh
+conda create -p name_of_environment -y
+```
+Then, activate the environment:
+```sh
+conda activate name_of_environment
+```
+If that doesn’t work, try:
+```sh
+conda activate path_of_environment
+```
+
+### Step 2: Install Required Dependencies
+Run the following command to install dependencies from the requirements file:
+```sh
+pip install -r requirements.txt
+```
+
+### Step 3: Fine-Tune the Model
+Execute the fine-tuning script on a custom dataset (`shuffled_db.csv`) using:
+```sh
+python fine_tuning.py
+```
+
+### Step 4: Deploy the Model on a Flask Server
+Once fine-tuning is complete, deploy the model using:
+```sh
+python app.py
+```
+
+Your BERT model is now set up and ready to go!
+
 ## 📢 Get Started
 Stay tuned for installation steps and API documentation! 🚀
+
 
 
