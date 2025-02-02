@@ -190,7 +190,7 @@ const ChatGPTInterface = () => {
         setReadDataOperation(false);
         setGeneralOpeeration({
           flag: true,
-          response: data["message"],
+          response: `${data["message"]} entries updated!`,
         });
 
         if (data["message"] > 0) {

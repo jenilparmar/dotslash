@@ -51,14 +51,6 @@ export default function Card({ statement, query, intent, transaction, date }) {
         <></>
       )}
       <div className="flex items-center justify-between">
-        <p className="text-xs text-gray-500 italic">
-          {new Date(Number(date) / 1000000).toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "short",
-            day: "numeric",
-          })}
-        </p>
-
         <button
           onClick={() => {
             setNames(true);

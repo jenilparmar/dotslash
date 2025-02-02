@@ -101,7 +101,7 @@ export async function updateData(
       response.push(reso);
     }
 
-    return `${response.length} records updated successfully!`;
+    return response.length;
   } catch (error) {
     console.error("Error updating data:", error);
     return { success: false, message: "Error updating data" };
